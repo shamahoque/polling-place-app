@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function open_win() {
+            window.open("homePage.html", "Furniture Layout", 'width=600,height=800');
+        }
+    </script>
+    <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/homepage.css" type="text/css"/>
+</head>
+</head>
+<body onload="open_win()" id="top">
+<div class="wrapper col1">
+    <div id="topbar" style="height: 10px">
+    </div>
+</div>
+<div id="head">
+    <h1 class="mainTitle">Furniture Layout App</h1>
+    To Launch the app click
+    <a href="#" onclick="open_win()">here</a>
+</div>
+<div class="wrapper col5">
+    <div id="copyright">
+        <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - <a href="#">MyPollPlaceDesign.com</a></p>
+
+        <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS
+            Templates</a></p>
+        <br class="clear"/>
+    </div>
+</div>
+</body>
+</html>
