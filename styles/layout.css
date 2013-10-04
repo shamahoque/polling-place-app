@@ -8,7 +8,7 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 
 @import url(navi.css);
 @import url(forms.css);
-@import url(tables.css);
+/*@import url(tables.css);*/
 
 body{
 	margin:0;
@@ -36,15 +36,18 @@ a{outline:none; text-decoration:none;}
 .imgr{float:right; margin:0 0 8px 8px; border:1px solid #000000; padding:5px; color:#FFFFFF; background-color:#999999; clear:right;}
 
 .mainTitle{
-    color:#7BAB96;
-    background-color:#F5F5EB;
+    color:#F5F5EB;
+    /*background-color:#F5F5EB;*/
 }
 
 .instructions{
+	padding-top: 80px;
     display:block;
     position:absolute;
-    left:0;
-    text-align:right;
+    /*left:0;*/
+    text-align:center;
+    color: #7BAB96;
+    float: left;
 }
 
 /* ----------------------------------------------Wrapper-------------------------------------*/
@@ -74,8 +77,8 @@ div.wrapper{
 /* ----------------------------------------------TopBar-------------------------------------*/
 
 #topbar{
-	height:40px;
-	padding-top:20px;
+	height:60px;
+	padding-top:10px;
 	}
 
 #topbar ul{
@@ -136,8 +139,9 @@ div.wrapper{
 /* ----------------------------------------------Head-------------------------------------*/
 
 #head{
+	padding-top: 20px;
 	z-index:1000;
-	height:270px;
+	height:500px;
 	color:#666666;
 	background-color:#F5F5EB;
 	font-size:20px;

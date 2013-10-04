@@ -83,9 +83,13 @@ body {
     padding:0px; margin: 0px;
 }
 
+#topnav {
+    width: 700px;
+}
 #tabContent{
     display:block;
-    font-weight:bold;
+    position: absolute;
+    /*font-weight:bold;*/
     font-size:14px;
     font-family:Verdana, Arial, Helvetica, sans-serif;
     color:#FFFFFF;

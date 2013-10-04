@@ -1,118 +1,90 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr">
 <head profile="http://gmpg.org/xfn/11">
-<title>Furniture Layout App</title>
+<title>Polling Place Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 <link rel="stylesheet" href="styles/homepage.css" type="text/css" />
     <style type="text/css">
-        dl.image_map {display:block; width:292px; height:229px; background:url(./images/allForms.png); position:relative; margin:2px auto 2px auto;}
-        a.LINK0 {left:10px; top:10px; background:transparent;}
-        a.LINK0 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK0:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK1 {left:99px; top:12px; background:transparent;}
-        a.LINK1 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK1:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK2 {left:190px; top:11px; background:transparent;}
-        a.LINK2 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK2:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK3 {left:11px; top:81px; background:transparent;}
-        a.LINK3 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK3:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK4 {left:99px; top:82px; background:transparent;}
-        a.LINK4 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK4:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK5 {left:190px; top:82px; background:transparent;}
-        a.LINK5 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK5:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK6 {left:11px; top:150px; background:transparent;}
-        a.LINK6 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK6:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK7 {left:100px; top:150px; background:transparent;}
-        a.LINK7 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK7:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.LINK8 {left:191px; top:152px; background:transparent;}
-        a.LINK8 {display:block; width:86px; height:0; padding-top:61px; overflow:hidden; position:absolute;}
-        a.LINK8:hover  {background:transparent; border:1px dashed black; color:black;}
-        a.BLINK {left:290px; top:227px; background:transparent;}
-        a.BLINK {display:block; width:202px; height:17px; overflow:hidden; position:absolute; font-size:0px;}
-        a.BLINK:hover  {background:black; border:1px dashed white; color:white; font-size:9px;}
+      .outline_options{
+        width: 500px; 
+        height: 400px; 
+        padding: 15px; 
+        float: right; 
+        border:2px solid; 
+        border-radius:15px; 
+        background-color:white; 
+        box-shadow: 10px 10px 5px #888888;
+        
+      }
+      .outline_options img {
+        width: 120px;
+        height: 84px;
+        /*padding: 20px;*/
+      }
+      .outline_options img:hover {
+       border: 2px dashed black;
+      }
+      td {
+        padding: 15px;
+      }
     </style>
 </head>
 <body id="top">
 <div class="wrapper col1">
     <div id="topbar">
+      <h1 class="mainTitle">Polling Place Application</h1>
     </div>
 </div>
 <!--  / TopBar -->
 <div class="wrapper col2">
+
+  
+
   <div id="head">
-    <h1 class="mainTitle">Furniture Layout App</h1>
-      <br/>
-      <br/>
-    <p class="instructions">Create your poll place layout with a simple drag and drop.</p>
+    <div class="instructions">
+        <h3>Create your poll place layout<br> with simple drag and drop.</h3>
         <br/>
-        <br/>
-      <p class="instructions">Please select the basic form of your voting area.
-    </p>
+        
+       
+        <img src="images/overview.png"/>
 
-  </div>
-</div>
-<!--  / Head -->
-<!-- <div class="wrapper col3">
-  <div id="projects">
-    <p>Please select the basic form of your voting area</p>
-  </div>
-</div> -->
-<div class="wrapper col3">
-  <div style="width: 600px;padding: 15px 0px;" >
-    <ul style="list-style: none">
-      <li>
+      
+    </div>
+    <div class="outline_options">
+      Select the basic outline of your voting area:
+      <br/>
+      <table border="0" style="padding:10px; margin: 0 auto;">
+        <tr>
+            <td><a href="Layouts/layout1.html"><img src="images/Rec1.PNG"/></a></td>
+            <td><a href="Layouts/layout2.html"><img src="images/Rec2.PNG"/></a></td>
+            <td><a href="Layouts/layout3.html"><img src="images/Rec3.PNG"/></a></td>
+        </tr>
+        <tr>
+            <td><a href="Layouts/layout4.html"><img src="images/Rec4.PNG"/></a></td>
+            <td><a href="Layouts/layout5.html"><img src="images/Rec5.PNG"/></a></td>
+            <td><a href="Layouts/layout6.html"><img src="images/Rec6.PNG"/></a></td>
+        </tr>
+        <tr>
+            <td><a href="Layouts/layout7.html"><img src="images/Rec7.PNG"/></a></td>
+            <td><a href="Layouts/layout8.html"><img src="images/Rec8.PNG"/></a></td>
+            <td><a href="Layouts/layout9.html"><img src="images/Rec9.PNG"/></a></td>
+        </tr>
+      </table>
 
-          <dl class="image_map">
-              <dd><a class="LINK0" title="" href="Layouts/layout1.html"></a></dd>
-              <dd><a class="LINK1" title="" href="Layouts/layout2.html"></a></dd>
-              <dd><a class="LINK2" title="" href="Layouts/layout3.html"></a></dd>
-              <dd><a class="LINK3" title="" href="Layouts/layout4.html"></a></dd>
-              <dd><a class="LINK4" title="" href="Layouts/layout5.html"></a></dd>
-              <dd><a class="LINK5" title="" href="Layouts/layout6.html"></a></dd>
-              <dd><a class="LINK6" title="" href="Layouts/layout7.html"></a></dd>
-              <dd><a class="LINK7" title="" href="Layouts/layout8.html"></a></dd>
-              <dd><a class="LINK8" title="" href="Layouts/layout9.html"></a></dd>
-              <dd><a class="BLINK" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_2201306121444261">Mapped @ Image Mapper</a></dd>
-          </dl>
-
-
-      </li>
-
-    </ul>
     <br class="clear" />
   </div>
+  </div>
+  
 </div>
+
 <div class="wrapper col5">
   <div id="copyright">
-    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - </p>
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved</p>
     <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
     <br class="clear" />
   </div>
 </div>
 
-
-
-
-<!-- Image map text links - Start - If you do not wish to have text links under your image map, you can move or delete this DIV -->
-<!-- <div style="text-align:center; font-size:12px; font-family:verdana; margin-left:auto; margin-right:auto; width:292px;">
-    <a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/" title="Untitled">Untitled</a>
-    | 	<a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/index.php?aff=mapped_users_2201306121444261" title="Image Map">Image Map</a>
-</div>  -->
-<!-- Image map text links - End - -->
 </body>
 </html>
