@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 <link rel="stylesheet" href="styles/homepage.css" type="text/css" />
+<link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
     <style type="text/css">
       .outline_options{
         width: 500px; 
@@ -15,7 +16,7 @@
         border-radius:15px; 
         background-color:white; 
         box-shadow: 10px 10px 5px #888888;
-        
+
       }
       .outline_options img {
         width: 120px;
@@ -29,6 +30,7 @@
         padding: 15px;
       }
     </style>
+    
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -36,46 +38,104 @@
       <h1 class="mainTitle">Polling Place Application</h1>
     </div>
 </div>
-<!--  / TopBar -->
+
 <div class="wrapper col2">
 
   
+  <div id="homepage">
+      <div id="head">
+        <div class="instructions">
+            <h3>Create your poll place layout<br> with simple drag and drop.</h3>
+            <br/>
+            
+           
+            <img src="images/overview.png"/>
 
-  <div id="head">
-    <div class="instructions">
-        <h3>Create your poll place layout<br> with simple drag and drop.</h3>
-        <br/>
-        
-       
-        <img src="images/overview.png"/>
+          
+        </div>
+        <div class="outline_options">
+          Select the basic outline of your voting area:
+          <br/>
+          <table border="0" style="padding:10px; margin: 0 auto;">
+            <tr>
+                <td><img src="images/Rec1.PNG" onclick="makeLayoutPage(1)"/></td>
+                <td><img src="images/Rec2.PNG" onclick="makeLayoutPage(2)"/></td>
+                <td><img src="images/Rec3.PNG" onclick="makeLayoutPage(3)"/></td>
+            </tr>
+            <tr>
+                <td><img src="images/Rec4.PNG" onclick="makeLayoutPage(4)"/></td>
+                <td><img src="images/Rec5.PNG" onclick="makeLayoutPage(5)"/></td>
+                <td><img src="images/Rec6.PNG" onclick="makeLayoutPage(6)"/></td>
+            </tr>
+            <tr>
+                <td><img src="images/Rec7.PNG" onclick="makeLayoutPage(7)"/></td>
+                <td><img src="images/Rec8.PNG" onclick="makeLayoutPage(8)"/></td>
+                <td><img src="images/Rec9.PNG" onclick="makeLayoutPage(9)"/></td>
+            </tr>
+          </table>
 
-      
-    </div>
-    <div class="outline_options">
-      Select the basic outline of your voting area:
-      <br/>
-      <table border="0" style="padding:10px; margin: 0 auto;">
-        <tr>
-            <td><a href="Layouts/layout1.html"><img src="images/Rec1.PNG"/></a></td>
-            <td><a href="Layouts/layout2.html"><img src="images/Rec2.PNG"/></a></td>
-            <td><a href="Layouts/layout3.html"><img src="images/Rec3.PNG"/></a></td>
-        </tr>
-        <tr>
-            <td><a href="Layouts/layout4.html"><img src="images/Rec4.PNG"/></a></td>
-            <td><a href="Layouts/layout5.html"><img src="images/Rec5.PNG"/></a></td>
-            <td><a href="Layouts/layout6.html"><img src="images/Rec6.PNG"/></a></td>
-        </tr>
-        <tr>
-            <td><a href="Layouts/layout7.html"><img src="images/Rec7.PNG"/></a></td>
-            <td><a href="Layouts/layout8.html"><img src="images/Rec8.PNG"/></a></td>
-            <td><a href="Layouts/layout9.html"><img src="images/Rec9.PNG"/></a></td>
-        </tr>
-      </table>
-
-    <br class="clear" />
+        <br class="clear" />
+      </div>
+      </div>
   </div>
+  <div id="layout_edit" style="display:none; height: 1120px;">
+    <button onclick="location.reload();">Choose a different outline</button>
+    <table style="border: 0; width: 100%">
+    <tr>
+        <td>
+            <div id="diagram">
+            </div>
+        </td>
+        <td>
+            <div id="toolbox">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="buttons" style="float:right; width:350px;">
+                <button onclick="saveCopy();">Save Diagram</button>
+                <button onclick="reset();">Reset</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="vertical-align: top">
+            <table>
+                <tr>
+                    <td>
+                        <div id="topnav">
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="tabContent"></div>
+                    </td>
+                </tr>
+            </table>
+
+            </div> </td>
+    </tr>
+</table>
+
+<div id="blanket" style="display:none"></div>
+<div id="popUpDiv" style="display:none">
+    <a href="#" id="close" onclick="popup('popUpDiv')">Close </a>
+
+    <h3>Checklist:</h3>
+
+    <div id="allToDos"></div>
+</div>
+
+<div id="checkboxToDoList"></div>
+<div id="tabsToDoList"></div>
+
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
+<script type="text/javascript" src="js/diagram.js"></script>
+
   </div>
-  
 </div>
 
 <div class="wrapper col5">

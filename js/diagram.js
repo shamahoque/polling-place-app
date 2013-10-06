@@ -1,4 +1,5 @@
 var imgNumber = 0;
+var layoutNumber;
 var imagesArray = new Array("entrance.jpg",
     "exit.jpg",
     "helpH.png",
@@ -173,7 +174,7 @@ function createTable(index) {
     var num_rows = 7;
     var num_cols = 7;
     var tbody = '';
-    var theader = '<table border="0" class="diagramTable" />\n';
+    var theader = '<table border="0" id="diagramTable" />\n';
     for (var i = 0; i < num_rows; i++) {
         tbody += '<tr>';
         for (var j = 0; j < num_cols; j++) {
@@ -184,7 +185,8 @@ function createTable(index) {
         tbody += '</tr>\n';
     }
     var tfooter = '</table></div>';
-    document.getElementById('diagram' + index).innerHTML = theader + tbody + tfooter;
+    document.getElementById('diagram').style.backgroundImage="url(./images/Rec"+index+".PNG)";
+    document.getElementById('diagram').innerHTML = theader + tbody + tfooter;
 }
 function createToolbox() {
     var imgNum = 0;
@@ -194,7 +196,7 @@ function createToolbox() {
     var instructions = "<h4> Drag and drop the furniture in the diagram. Click each image to see helpful checklists.</h4>";
     var tbody = '';
     var theader = '<table border="1" class="toolboxTable">\n';
-    var imgBase = qualifyURL("../images/toolbox/");
+    var imgBase = qualifyURL("./images/toolbox/");
     for (var i = 0; i < num_rows; i++) {
         tbody += '<tr>';
         for (var j = 0; j < num_cols; j++) {
@@ -316,7 +318,8 @@ function drop(ev) {
     ev.target.appendChild(movableImage);
 }
 function reset() {
-    location.reload();
+    document.getElementById('diagram').removeChild(document.getElementById('diagramTable'));
+    createTable(layoutNumber);
 }
 
 
@@ -388,16 +391,27 @@ function qualifyURL(url) {
     return el.firstChild.href;
 }
 
-function saveCopy(index) {
+function saveCopy() {
     var styleSheetLink = qualifyURL("../styles/diagram_layout.css");
     var savedPage = "<html><head>";
     savedPage += '<title>Layout</title>';
     savedPage += '<link rel="stylesheet" href="' + styleSheetLink + '"  type="text/css">';
     savedPage += '</head><body>';
-    var diagramName='diagram'+index;
+    var diagramName='diagram';
     savedPage += document.getElementById(diagramName).outerHTML;
     savedPage += '</body></html>';
 
     var blob = new Blob([savedPage], {type: "text/html"});
     saveAs(blob, 'diagram.html');
+}
+
+function makeLayoutPage(layout_number){
+    layoutNumber = layout_number;
+    document.getElementById("homepage").style.display = "none"; 
+    document.getElementById("layout_edit").style.display = "block";
+    createTable(layout_number);
+    createToolbox();
+    createTabNav();
+    createTabContent();
+
 }
