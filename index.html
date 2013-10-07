@@ -18,6 +18,9 @@
         box-shadow: 10px 10px 5px #888888;
 
       }
+      .toolboxImage:hover .rotator{
+        background-image: url("images/rotate.png")
+      }
       .outline_options img {
         width: 120px;
         height: 84px;
@@ -40,7 +43,6 @@
 </div>
 
 <div class="wrapper col2">
-
   
   <div id="homepage">
       <div id="head">
@@ -78,29 +80,21 @@
       </div>
       </div>
   </div>
-  <div id="layout_edit" style="display:none; height: 1120px;">
+  <div id="layout_edit" style="display:none; height: 1120px; overflow: hidden;">
     <button onclick="location.reload();">Choose a different outline</button>
-    <table style="border: 0; width: 100%">
-    <tr>
-        <td>
+    
             <div id="diagram">
             </div>
-        </td>
-        <td>
+        
+     
             <div id="toolbox">
             </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
+        
             <div id="buttons" style="float:right; width:350px;">
                 <button onclick="saveCopy();">Save Diagram</button>
                 <button onclick="reset();">Reset</button>
             </div>
-        </td>
-    </tr>
-    <tr>
-        <td rowspan="2" style="vertical-align: top">
+    
             <table>
                 <tr>
                     <td>
@@ -116,10 +110,7 @@
                 </tr>
             </table>
 
-            </div> </td>
-    </tr>
-</table>
-
+</div> 
 <div id="blanket" style="display:none"></div>
 <div id="popUpDiv" style="display:none">
     <a href="#" id="close" onclick="popup('popUpDiv')">Close </a>
@@ -134,6 +125,63 @@
 
 <script type="text/javascript" src="js/FileSaver.min.js"></script>
 <script type="text/javascript" src="js/diagram.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  
+
+<script type="text/javascript">
+ 
+  var ele;
+ 
+function init() {
+  ele = $('.toolboxImage');
+ $('.toolboxImage').draggable({
+    cursor: 'move',
+    helper: "clone"
+  });
+
+  $('.toolboxImage').bind('dragstop', function (event, ui) {
+    if ($(ui.helper).hasClass('rotator'))
+        return true
+    $(this).after($(ui.helper).clone().draggable({ cursor: 'move' }).addClass('drop'));
+    $('.drop img').click(function(event){
+        showChecklist(event, 'popUpDiv');
+    });
+    applyRotation();
+  });
+
+      // Create handle dynamically
+    $('<div class="rotator"></div>').appendTo(ele).addClass('handler').css({
+        'position': 'absolute',
+            'bottom': -3,
+            'right': 2,
+            'height': 25,
+            'width': 25
+    });
+
+    ele.css('position', 'relative');
+
+    applyRotation();
+
+    
+}
+
+function applyRotation() {
+    $('.handler').draggable({
+        opacity: 0.01,
+        helper: 'clone',
+        drag: function (event, ui) {
+            var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+
+            $(this).parent().css({
+                '-moz-transform': rotateCSS,
+                    '-webkit-transform': rotateCSS
+            });
+        }
+    });
+}
+
+</script>
 
   </div>
 </div>

@@ -170,23 +170,8 @@ navigationTabsContent[3] =new Array( "At 6:45 p.m. - Announce outside 'The polls
         "Do NOT return ballots in the cart!",
         "Do NOT put the Blue Bag back into the cart",
         "The Blue Bag and Ballots must be returned to the Government Center!");
-function createTable(index) {
-    var num_rows = 7;
-    var num_cols = 7;
-    var tbody = '';
-    var theader = '<table border="0" id="diagramTable" />\n';
-    for (var i = 0; i < num_rows; i++) {
-        tbody += '<tr>';
-        for (var j = 0; j < num_cols; j++) {
-            tbody += '<td class="diagramCell" ondrop="drop(event)" ondragover="allowDrop(event)">';
-            tbody += '';
-            tbody += '</td>'
-        }
-        tbody += '</tr>\n';
-    }
-    var tfooter = '</table></div>';
+function createEditableLayout(index) {
     document.getElementById('diagram').style.backgroundImage="url(./images/Rec"+index+".PNG)";
-    document.getElementById('diagram').innerHTML = theader + tbody + tfooter;
 }
 function createToolbox() {
     var imgNum = 0;
@@ -201,8 +186,8 @@ function createToolbox() {
         tbody += '<tr>';
         for (var j = 0; j < num_cols; j++) {
             tbody += '<td class="toolboxCell">';
-            tbody += '<img class="toolboxImage" title="'+imagesArrayToolTip[imgNum]+'" src="' + imgBase + imagesArray[imgNum] + '" id="img_' + (imgNum) +
-                '"  draggable="true" ondragstart="drag(event)" />';
+            tbody += '<div class="toolboxImage"><img class="itemImage" title="'+imagesArrayToolTip[imgNum]+'" src="' + imgBase + imagesArray[imgNum] + '" id="img_' + (imgNum) +
+                '"/></div>';
             tbody += '</td>'
             imgNum++;
         }
@@ -276,6 +261,7 @@ function showTabContent(index) {
 }
 
 function showChecklist(ev, windowname) {
+    createToDoDivs(ev.target.id);
     //get all other divs
     var allToDos = document.getElementById("allToDos");
     var children = allToDos.childNodes;
@@ -290,33 +276,6 @@ function showChecklist(ev, windowname) {
     popup(windowname);
 }
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("Text", ev.target.id);
-
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("Text");
-    var movableImage = document.getElementById(data);
-    if (!movableImage["isCloned"]) {
-        movableImage = movableImage.cloneNode(true);
-        movableImage.isCloned = true;
-        movableImage.id = "clon_" + movableImage.id + "_" + imgNumber;
-        movableImage.className = "diagramImage";
-        movableImage.onclick = function (event) {
-            return showChecklist(event, 'popUpDiv');
-        };
-        createToDoDivs(movableImage.id);
-        imgNumber++;
-    }
-
-    ev.target.appendChild(movableImage);
-}
 function reset() {
     document.getElementById('diagram').removeChild(document.getElementById('diagramTable'));
     createTable(layoutNumber);
@@ -408,10 +367,12 @@ function saveCopy() {
 function makeLayoutPage(layout_number){
     layoutNumber = layout_number;
     document.getElementById("homepage").style.display = "none"; 
+    document.getElementById("topbar").style.display = "none"; 
     document.getElementById("layout_edit").style.display = "block";
-    createTable(layout_number);
+    createEditableLayout(layout_number);
     createToolbox();
     createTabNav();
     createTabContent();
+    $( init );
 
 }

@@ -1,14 +1,21 @@
 @import url(navi.css);
 
-#diagram {background-repeat:no-repeat; width: 550px;height: 400px; width: 60%:float:left}
+#diagram {background-repeat:no-repeat; width: 550px;height: 400px; width: 60%;float:left}
 
 body {
     background-color: #EEEEDD
+}
+#toolbox {
+ float: right;
 }
 .toolboxImage {
     width: 95px;
     height: 65px;
 
+}
+.toolboxImage img {
+    width: 90px;
+    height: 60px;
 }
 
 .diagramImage {
