@@ -18,6 +18,10 @@
         box-shadow: 10px 10px 5px #888888;
 
       }
+      .toolboxImage:hover img{
+        width: 90px;
+        height: 60px;
+      }
       .toolboxImage:hover .rotator{
         background-image: url("images/rotate.png")
       }
@@ -49,11 +53,9 @@
         <div class="instructions">
             <h3>Create your poll place layout<br> with simple drag and drop.</h3>
             <br/>
-            
-           
-            <img src="images/overview.png"/>
 
-          
+            <img src="images/overview.png"/>
+     
         </div>
         <div class="outline_options">
           Select the basic outline of your voting area:
@@ -80,19 +82,25 @@
       </div>
       </div>
   </div>
-  <div id="layout_edit" style="display:none; height: 1120px; overflow: hidden;">
+
+  <div id="layout_edit" style="display:none; height: 1120px;">
+    <div class="col3">
+      Polling Place Application
     <button onclick="location.reload();">Choose a different outline</button>
-    
+    <button onclick="saveCopy();">Save Diagram</button>
+                <button onclick="reset();">Reset</button>
+    </div>
+    <div id="edit_body">
+          <div id="edit">
             <div id="diagram">
             </div>
-        
+        </div>
      
             <div id="toolbox">
             </div>
-        
+    </div>
             <div id="buttons" style="float:right; width:350px;">
-                <button onclick="saveCopy();">Save Diagram</button>
-                <button onclick="reset();">Reset</button>
+                
             </div>
     
             <table>
@@ -140,21 +148,24 @@ function init() {
     helper: "clone"
   });
 
-  $('.toolboxImage').bind('dragstop', function (event, ui) {
-    if ($(ui.helper).hasClass('rotator'))
-        return true
-    $(this).after($(ui.helper).clone().draggable({ cursor: 'move' }).addClass('drop'));
-    $('.drop img').click(function(event){
-        showChecklist(event, 'popUpDiv');
-    });
-    applyRotation();
+  $('#diagram').droppable({
+    drop: function (event, ui) {
+      if ($(ui.helper).hasClass('rotator'))
+          return true
+      $(this).after($(ui.helper).clone().draggable({ cursor: 'move' }).addClass('drop'));
+      $('.drop').click(function(event){
+        
+         showChecklist(event, 'popUpDiv');
+      });
+      applyRotation();
+    }
   });
 
       // Create handle dynamically
     $('<div class="rotator"></div>').appendTo(ele).addClass('handler').css({
         'position': 'absolute',
-            'bottom': -3,
-            'right': 2,
+            'bottom': -30,
+            'right': 7,
             'height': 25,
             'width': 25
     });

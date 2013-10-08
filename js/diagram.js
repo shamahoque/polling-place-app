@@ -277,8 +277,8 @@ function showChecklist(ev, windowname) {
 }
 
 function reset() {
-    document.getElementById('diagram').removeChild(document.getElementById('diagramTable'));
-    createTable(layoutNumber);
+    $('#edit .drop').remove();
+    createEditableLayout(layoutNumber);
 }
 
 
@@ -356,7 +356,7 @@ function saveCopy() {
     savedPage += '<title>Layout</title>';
     savedPage += '<link rel="stylesheet" href="' + styleSheetLink + '"  type="text/css">';
     savedPage += '</head><body>';
-    var diagramName='diagram';
+    var diagramName='edit';
     savedPage += document.getElementById(diagramName).outerHTML;
     savedPage += '</body></html>';
 
