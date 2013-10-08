@@ -32,6 +32,7 @@
       }
       .outline_options img:hover {
        border: 2px dashed black;
+       cursor: pointer;
       }
       td {
         padding: 15px;
@@ -157,13 +158,12 @@ function init() {
 
   $('#diagram').droppable({
     drop: function (event, ui) {
-      if ($(ui.helper).hasClass('drop'))
-          return true
+      if ($(ui.helper).hasClass('drop')){
+          clickDroppedItem();
+          return true;
+      }
       $(this).after($(ui.helper).clone().draggable().addClass('drop'));
-      $('.drop').click(function(event){
-        
-         showChecklist(event, 'popUpDiv');
-      });
+      clickDroppedItem();
       applyRotation();
     }
   });
@@ -184,6 +184,13 @@ function init() {
     
 }
 
+function clickDroppedItem (){
+    $('.drop').click(function(event){
+        console.log(event.target);
+        showChecklist(event, 'popUpDiv');
+    });
+
+}
 function applyRotation() {
     $('.handler').draggable({
         opacity: 0.01,

@@ -178,7 +178,7 @@ function createToolbox() {
     var num_rows = 4;
     var num_cols = 3;
     var title = "<h3>Toolbox</h3>"
-    var instructions = "<h4> Drag and drop the furniture in the diagram. Click each image to see helpful checklists.</h4>";
+    var instructions = "<h4> Drag and drop the furniture in the outline. Click each image to see helpful checklists.</h4>";
     var tbody = '';
     var theader = '<table border="0" class="toolboxTable">\n';
     var imgBase = qualifyURL("./images/toolbox/");
