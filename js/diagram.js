@@ -253,14 +253,16 @@ function showTabContent(index) {
     allToDoTab.className = "shown";
 
    //to toggle style between active and inactive tabs
-  /*for(var j=0; j < navigationTabs.length; j++){
+  for(var j=0; j < navigationTabs.length; j++){
 		var tabLink = document.getElementById("tab_" + j);
 		if(j==index){
-			tabLink.className="activeTab";
+			tabLink.style.color="#FFFFFF";
+			tabLink.style.backgroundColor="#96897A";
 		}else{
-			tabLink.className="inactiveTab";
+			tabLink.style.removeProperty('color');
+			tabLink.style.removeProperty('background-color');
 		}
-	}*/		
+	}		
 }
 
 function showChecklist(ev, windowname) {
