@@ -150,15 +150,16 @@
 function init() {
   ele = $('.toolboxImage');
  $('.toolboxImage').draggable({
-    cursor: 'move',
     helper: "clone"
   });
 
+
+
   $('#diagram').droppable({
     drop: function (event, ui) {
-      if ($(ui.helper).hasClass('rotator'))
+      if ($(ui.helper).hasClass('drop'))
           return true
-      $(this).after($(ui.helper).clone().draggable({ cursor: 'move' }).addClass('drop'));
+      $(this).after($(ui.helper).clone().draggable().addClass('drop'));
       $('.drop').click(function(event){
         
          showChecklist(event, 'popUpDiv');

@@ -21,6 +21,7 @@ body {
 .toolboxImage {
     width: 63px;
     height: 43px;
+    cursor: pointer;
 
 }
 .toolboxImage img {
