@@ -210,7 +210,7 @@ function createTabNav() {
     var tabs = "";
     tabs += '<ul>';
     for (var i = 0; i < navigationTabs.length; i++) {
-        tabs += '<li><a class="active" href="#" onclick="showTabContent(' + i + ')">' + navigationTabs[i] + '</a></li>';
+        tabs += '<li><a id="tab_' + i + '" class="inactiveTab" href="" onclick="showTabContent(' + i + ');return false;">' + navigationTabs[i] + '</a></li>';
     }
     tabs += '</ul>';
     var topNav = document.getElementById("topnav");
@@ -251,6 +251,16 @@ function showTabContent(index) {
     }
     var allToDoTab = document.getElementById("clon_todo_div_" + index);
     allToDoTab.className = "shown";
+
+   //to toggle style between active and inactive tabs
+  /*for(var j=0; j < navigationTabs.length; j++){
+		var tabLink = document.getElementById("tab_" + j);
+		if(j==index){
+			tabLink.className="activeTab";
+		}else{
+			tabLink.className="inactiveTab";
+		}
+	}*/		
 }
 
 function showChecklist(ev, windowname) {

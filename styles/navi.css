@@ -27,7 +27,7 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 	padding:0;
 	}
 
-#topnav li a:link, #topnav li a:visited{
+#topnav li a:link{
 	display:block;
 	margin:0 5px 0 0;
 	padding:14px 15px;
@@ -38,7 +38,7 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 
 #topnav li a:hover, #topnav li a:active{
 	color:#FFFFFF;
-	background-color:#A7A697;
+	background-color:#96897A;
 	}
 	
 
@@ -51,6 +51,16 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 	width:170px;
 	border:1px solid #6A6A6A;
 	border-top:none;
+	}
+
+.activeTab{
+	color:#FFFFFF;
+	background-color: #96897A;
+	}
+
+.inactiveTab{
+	color:#7BAB96;
+	background-color:#EEEEDD;
 	}
 
 #topnav li ul a{width:140px;}
