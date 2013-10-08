@@ -122,9 +122,7 @@ navigationTabsContent[1] = new Array("Promptly at 5:00 a.m., swear in Election O
 "Welcome authorized representatives (Poll Watchers)",
     "Open voting machine cart",
     "Prepare the Paper Ballots",
-    "Never, ever, leave ballots unattended!",
     "Check machine ballot against precinct sample ballot",
-    "Post the following signs outside the polling place:",
     "Post VOTE HERE sign(s) at most visible site from road/parking lot",
     "Post additional POLLING PLACE signs on street corners or parking lot entrances as needed, especially if your polling place is difficult for new voters to locate",
     "Post other signs, such as arrows, as needed to direct voters to voting entrance. This is especially important if you are not in your normal room",
@@ -132,12 +130,9 @@ navigationTabsContent[1] = new Array("Promptly at 5:00 a.m., swear in Election O
     "Required: post CURBSIDE VOTING signs at main entrance to building and at the designated, handicapped parking spaces. Post the 'call for assistance' sign with an appropriate phone number for your location",
     "As needed: post HANDICAPPED PARKING / ALTERNATE ENTRANCE signs",
     "As needed: establish additional HANDICAPPED PARKING spaces close to your entrance",
-    "Inspect exterior and interior pathways for obstacles",
-    "Post the following signs in hallway or inside the polling place:",
     "Required: Post IDENTIFICATION / GIVE FULL LEGAL NAME signs on check-in tables",
     "For Paper Pollbooks - use ALPHABETICAL DIVISION signs on tables and in room to direct voters as quickly as possible into their correct line",
     "Required: Voting Instruction Posters",
-    "Required: Post MAP of Fairfax County",
     "Required: Post SAMPLE BALLOTS, minimum of 2 sets",
     "Required: Post VOTER RIGHTS AND RESPONSIBILITIES [HAVA] POSTER",
     "Required: When Ballot Box is set up, attach the BALLOT BOX sign to the door of the Auxiliary Ballot bin on the left side of the Ballot Box",
@@ -145,12 +140,10 @@ navigationTabsContent[1] = new Array("Promptly at 5:00 a.m., swear in Election O
 navigationTabsContent[2] = new Array(
     "Keep the lines at the Check-in Tables, not in the voting area. Ask the Greeter to slow  down the pace at check-in if needed.",
     "NO VOTER MAY LEAVE THE VOTING LOCATION WITH A PAPER BALLOT IN HAND!!",
-    "To assist the elderly and voters with disabilities:",
     "Ask the person if he/she would like assistance. Don't assume or insist",
     "At your discretion, you may move very frail or disabled voters to the front of the line - most 'able-bodied' voters won't object",
     "Provide chairs for these voters if there are long waits in the lines",
     "Keep the magnifying glass out on the Check-In table, so voters know that it is available",
-    "If you don't have Pages at your polling place, ask the party workers distributing campaign literature to alert you if a voter needs assistance outside",
     "Post a curbside sign with an office or cell phone number to call for assistance",
     "For blind or severely visually-impaired voters notify the voter that an audio ballot is available",
     "For language-minority or illiterate voters any voter may bring an assistant to translate or read the ballot for them"
@@ -217,7 +210,7 @@ function createTabNav() {
     var tabs = "";
     tabs += '<ul>';
     for (var i = 0; i < navigationTabs.length; i++) {
-        tabs += '<li><a class="active" href="#" onclick="showTabContent(' + i + ')">' + navigationTabs[i] + '</a></li>';
+        tabs += '<li><a id="tab_' + i + '" class="inactiveTab" href="" onclick="showTabContent(' + i + ');return false;">' + navigationTabs[i] + '</a></li>';
     }
     tabs += '</ul>';
     var topNav = document.getElementById("topnav");
@@ -258,6 +251,18 @@ function showTabContent(index) {
     }
     var allToDoTab = document.getElementById("clon_todo_div_" + index);
     allToDoTab.className = "shown";
+
+   //to toggle style between active and inactive tabs
+  for(var j=0; j < navigationTabs.length; j++){
+		var tabLink = document.getElementById("tab_" + j);
+		if(j==index){
+			tabLink.style.color="#FFFFFF";
+			tabLink.style.backgroundColor="#96897A";
+		}else{
+			tabLink.style.removeProperty('color');
+			tabLink.style.removeProperty('background-color');
+		}
+	}		
 }
 
 function showChecklist(ev, windowname) {

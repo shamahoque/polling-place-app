@@ -27,35 +27,20 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 	padding:0;
 	}
 
-#topnav li a:link, #topnav li a:visited{
+#topnav li a:link{
 	display:block;
 	margin:0 5px 0 0;
 	padding:14px 15px;
 	color:#7BAB96;
 	background-color:#EEEEDD;
-    border-radius: 6px 6px 0 0;
+    	border-radius: 6px 6px 0 0;
 	}
 
-#topnav li a:hover, #topnav li a.active{
+#topnav li a:hover, #topnav li a:active{
 	color:#FFFFFF;
-	background-color:#A7A697;
+	background-color:#96897A;
 	}
 	
-#topnav li li a:link, #topnav li li a:visited{
-	width:150px;
-	float:none;
-	margin:0;
-	padding:7px 10px;
-	font-size:12px;
-	font-weight:normal;
-	color:#6A6A6A;
-	background-color:#FFFFFF;
-	}
-	
-#topnav li li a:hover{
-	color:#FFFFFF;
-	background-color:#6A6A6A;
-	}
 
 #topnav li ul{
 	background: #FFFFFF;
@@ -66,6 +51,16 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 	width:170px;
 	border:1px solid #6A6A6A;
 	border-top:none;
+	}
+
+.activeTab{
+	color:#FFFFFF;
+	background-color: #96897A;
+	}
+
+.inactiveTab{
+	color:#7BAB96;
+	background-color:#EEEEDD;
 	}
 
 #topnav li ul a{width:140px;}

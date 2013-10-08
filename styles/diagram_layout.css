@@ -46,13 +46,14 @@ body {
 
 .shown{
     display: block;
+    border-radius: 0 6px 6px 0;
 }
 
 
 #blanket {
     background-color:#111;
     opacity: 0.65;
-    *background:none;
+    background:none;
     position:absolute;
     z-index: 9001;
     top:0px;
@@ -83,7 +84,6 @@ body {
 
 .toolboxTable{
     border: 0px;
-    /*background-color:white;*/
 }
 
 .toolboxCell{
@@ -94,14 +94,17 @@ body {
 }
 
 #topnav {
-    width: 700px;
+    width: 750px;
 }
 #tabContent{
     display:block;
     position: absolute;
-    /*font-weight:bold;*/
     font-size:14px;
     font-family:Verdana, Arial, Helvetica, sans-serif;
     color:#FFFFFF;
-    background-color: #96897a;
+    border-radius: 6px 6px 6px 0;
+    background-color: #96897A;
+    width: 1236px;
+	
 }
+
