@@ -11,12 +11,12 @@ body {
     background-color: #EEEEDD
 }
 #toolbox {
- float: left;
- width: 25%;
- border: 1px solid grey;
- text-align: center;
- padding: 10px;
- 
+   float: left;
+   width: 25%;
+   border: 1px solid grey;
+   text-align: center;
+   padding: 10px;
+
 }
 .toolboxImage {
     width: 63px;
@@ -29,16 +29,11 @@ body {
     height: 43px;
 }
 
-.diagramImage {
+.drop img {
     width: 63px;
     height: 43px;
-
 }
 
-.diagramImage:hover{
-    width: 95px;
-    height: 65px;
-}
 
 .hidden{
     display: none;
@@ -105,6 +100,6 @@ body {
     border-radius: 6px 6px 6px 0;
     background-color: #96897A;
     width: 1236px;
-	
+
 }
 

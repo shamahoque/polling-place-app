@@ -1,212 +1,144 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr">
 <head profile="http://gmpg.org/xfn/11">
-<title>Polling Place Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="styles/layout.css" type="text/css" />
-<link rel="stylesheet" href="styles/homepage.css" type="text/css" />
-<link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
-    <style type="text/css">
-      .outline_options{
-        width: 500px; 
-        height: 400px; 
-        padding: 15px; 
-        float: right; 
-        border:2px solid; 
-        border-radius:15px; 
-        background-color:white; 
-        box-shadow: 10px 10px 5px #888888;
+  <title>Polling Place Application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="styles/homepage.css" type="text/css" />
+  <link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
+  <style type="text/css">
+  .outline_options{
+    width: 500px; 
+    height: 400px; 
+    padding: 15px; 
+    float: right; 
+    border:2px solid; 
+    border-radius:15px; 
+    background-color:white; 
+    box-shadow: 10px 10px 5px #888888;
 
-      }
-      .toolboxImage:hover img{
-        width: 90px;
-        height: 60px;
-      }
-      .toolboxImage:hover .rotator{
-        background-image: url("images/rotate.png")
-      }
-      .outline_options img {
-        width: 120px;
-        height: 84px;
-        /*padding: 20px;*/
-      }
-      .outline_options img:hover {
-       border: 2px dashed black;
-       cursor: pointer;
-      }
-      td {
-        padding: 15px;
-      }
-      #edit_body{
-        padding-top: 8px;
-        padding-left: 10px;
-        height: 524px;
-      }
+  }
+  .toolboxImage:hover img{
+    width: 90px;
+    height: 60px;
+  }
+  .toolboxImage:hover .rotator{
+    background-image: url("images/rotate.png")
+  }
+  .outline_options img {
+    width: 120px;
+    height: 84px;
+    /*padding: 20px;*/
+  }
+  .outline_options img:hover {
+   border: 2px dashed black;
+   cursor: pointer;
+ }
+ td {
+  padding: 15px;
+}
+#edit_body{
+  padding-top: 8px;
+  padding-left: 10px;
+  height: 524px;
+}
 
 
-    </style>
-    
+</style>
+
 </head>
 <body id="top">
-<div class="wrapper col1">
+  <div class="wrapper col1">
     <div id="topbar">
       <h1 class="mainTitle">Polling Place Application</h1>
     </div>
-</div>
+  </div>
 
-<div class="wrapper col2">
-  
-  <div id="homepage">
+  <div class="wrapper col2">
+
+    <div id="homepage">
       <div id="head">
         <div class="instructions">
-            <h3>Create your poll place layout<br> with simple drag and drop.</h3>
-            <br/>
+          <h3>Create your poll place layout<br> with simple drag and drop.</h3>
+          <br/>
 
-            <img src="images/overview.png"/>
-     
+          <img src="images/overview.png"/>
+
         </div>
         <div class="outline_options">
           Select the basic outline of your voting area:
           <br/>
           <table border="0" style="padding:10px; margin: 0 auto;">
             <tr>
-                <td><img src="images/Rec1.PNG" onclick="makeLayoutPage(1)"/></td>
-                <td><img src="images/Rec2.PNG" onclick="makeLayoutPage(2)"/></td>
-                <td><img src="images/Rec3.PNG" onclick="makeLayoutPage(3)"/></td>
+              <td><img src="images/Rec1.PNG" onclick="makeLayoutPage(1)"/></td>
+              <td><img src="images/Rec2.PNG" onclick="makeLayoutPage(2)"/></td>
+              <td><img src="images/Rec3.PNG" onclick="makeLayoutPage(3)"/></td>
             </tr>
             <tr>
-                <td><img src="images/Rec4.PNG" onclick="makeLayoutPage(4)"/></td>
-                <td><img src="images/Rec5.PNG" onclick="makeLayoutPage(5)"/></td>
-                <td><img src="images/Rec6.PNG" onclick="makeLayoutPage(6)"/></td>
+              <td><img src="images/Rec4.PNG" onclick="makeLayoutPage(4)"/></td>
+              <td><img src="images/Rec5.PNG" onclick="makeLayoutPage(5)"/></td>
+              <td><img src="images/Rec6.PNG" onclick="makeLayoutPage(6)"/></td>
             </tr>
             <tr>
-                <td><img src="images/Rec7.PNG" onclick="makeLayoutPage(7)"/></td>
-                <td><img src="images/Rec8.PNG" onclick="makeLayoutPage(8)"/></td>
-                <td><img src="images/Rec9.PNG" onclick="makeLayoutPage(9)"/></td>
+              <td><img src="images/Rec7.PNG" onclick="makeLayoutPage(7)"/></td>
+              <td><img src="images/Rec8.PNG" onclick="makeLayoutPage(8)"/></td>
+              <td><img src="images/Rec9.PNG" onclick="makeLayoutPage(9)"/></td>
             </tr>
           </table>
 
-        <br class="clear" />
-      </div>
-      </div>
-  </div>
-
-  <div id="layout_edit" style="display:none; height: 1120px;">
-    <div class="col3">
-      Polling Place Application
-    <button onclick="location.reload();">Choose a different outline</button>
-    <button onclick="saveCopy();">Save Diagram</button>
-                <button onclick="reset();">Reset</button>
-    </div>
-    <div id="edit_body">
-          <div id="edit" style="padding:0px 55px 0px 40px;">
-            <div id="diagram">
-            </div>
+          <br class="clear" />
         </div>
-     
-            <div id="toolbox">
-            </div>
+      </div>
     </div>
-    <div style="padding-left: 30px">       
-    <h3 style="padding-left: 18px">General Checklists:</h3>
-  
-            <table>
-                <tr>
-                    <td style="padding-bottom:0px">
-                        <div id="topnav">
-                        </div>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top:0px">
-                        <div id="tabContent"></div>
-                    </td>
-                </tr>
-            </table>
+    <div id="layout_edit" style="display:none; height: 1120px;">
+      <div class="col3">
+        Polling Place Application
+        <button onclick="location.reload();">Choose a different outline</button>
+        <button onclick="saveCopy();">Save Diagram</button>
+        <button onclick="reset();">Reset</button>
+      </div>
+      <div id="edit_body">
+        <div id="edit" style="padding:0px 44px 0px 40px;">
+          <div id="diagram">
+          </div>
+        </div>
 
-</div> 
-<div id="blanket" style="display:none"></div>
-<div id="popUpDiv" style="display:none">
-    <a href="#" id="close" onclick="popup('popUpDiv')">Close </a>
+        <div id="toolbox">
+        </div>
+      </div>
+      <div style="padding-left: 30px">       
+        <h3 style="padding-left: 18px">General Checklists:</h3>
 
-    <h3>Checklist:</h3>
+        <table>
+          <tr>
+            <td style="padding-bottom:0px">
+              <div id="topnav">
+              </div>
 
-    <div id="allToDos"></div>
-</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-top:0px">
+              <div id="tabContent"></div>
+            </td>
+          </tr>
+        </table>
 
-<div id="checkboxToDoList"></div>
-<div id="tabsToDoList"></div>
-</div>
-<script type="text/javascript" src="js/FileSaver.min.js"></script>
-<script type="text/javascript" src="js/diagram.js"></script>
-<script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
-  
+      </div> 
+      <div id="blanket" style="display:none"></div>
+      <div id="popUpDiv" style="display:none">
+        <a href="#" id="close" onclick="popup('popUpDiv')">Close </a>
 
-<script type="text/javascript">
- 
-  var ele;
- 
-function init() {
-  ele = $('.toolboxImage');
- $('.toolboxImage').draggable({
-    helper: "clone"
-  });
+        <h3>Checklist:</h3>
 
+        <div id="allToDos"></div>
+      </div>
 
+      <div id="checkboxToDoList"></div>
+      <div id="tabsToDoList"></div>
+    </div>
 
-  $('#diagram').droppable({
-    drop: function (event, ui) {
-      if ($(ui.helper).hasClass('drop')){
-          clickDroppedItem();
-          return true;
-      }
-      $(this).after($(ui.helper).clone().draggable().addClass('drop'));
-      clickDroppedItem();
-      applyRotation();
-    }
-  });
-
-      // Create handle dynamically
-    $('<div class="rotator"></div>').appendTo(ele).addClass('handler').css({
-        'position': 'absolute',
-            'bottom': -30,
-            'right': 7,
-            'height': 25,
-            'width': 25
-    });
-
-    ele.css('position', 'relative');
-
-    applyRotation();
-
-    
-}
-
-function clickDroppedItem (){
-    $('.drop').click(function(event){
-        console.log(event.target);
-        showChecklist(event, 'popUpDiv');
-    });
-
-}
-function applyRotation() {
-    $('.handler').draggable({
-        opacity: 0.01,
-        helper: 'clone',
-        drag: function (event, ui) {
-            var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
-
-            $(this).parent().css({
-                '-moz-transform': rotateCSS,
-                    '-webkit-transform': rotateCSS
-            });
-        }
-    });
-}
-
-</script>
 
   </div>
 </div>
@@ -219,5 +151,83 @@ function applyRotation() {
   </div>
 </div>
 
-</body>
-</html>
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
+<script type="text/javascript" src="js/diagram.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+
+var ele;
+
+function init() {
+  ele = $('.toolboxImage');
+  $('.toolboxImage').draggable({
+    helper: "clone"
+  });
+
+
+
+  $('#diagram').droppable({
+    drop: function (event, ui) {
+      if ($(ui.helper).hasClass('drop')){
+        clickDroppedItem();
+        return true;
+      }
+      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).addClass('drop'));
+      clickDroppedItem();
+      applyRotation();
+    }
+  });
+
+          // Create handle dynamically
+          $('<div class="rotator"></div>').appendTo(ele).addClass('handler').css({
+            'position': 'absolute',
+            'bottom': -30,
+            'right': 7,
+            'height': 25,
+            'width': 25
+          });
+
+          ele.css('position', 'relative');
+
+          applyRotation();
+
+
+        }
+
+        function clickDroppedItem (){
+          $('.drop').click(function(event){
+            console.log(event.target);
+            showChecklist(event, 'popUpDiv');
+          });
+
+        }
+
+        function removeStyle(event, ui){
+          $(event.target).removeClass("toolboxImage");
+        }
+
+        function addStyle(event, ui){
+          $(event.target).addClass("toolboxImage");
+        }
+
+        function applyRotation() {
+          $('.handler').draggable({
+            opacity: 0.01,
+            helper: 'clone',
+            drag: function (event, ui) {
+              var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+              $(this).parent().css({
+                '-moz-transform': rotateCSS,
+                '-webkit-transform': rotateCSS
+              });
+            }
+          });
+        }
+
+        </script>
+
+      </body>
+      </html>

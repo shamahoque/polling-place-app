@@ -43,26 +43,26 @@ checklist[1] = new Array("Signs designating the polling place must be placed on 
     "Check entrances, ramps and pathways for barriers");
 //"help station"
 checklist[2] = new Array("Post sample ballots, amendment posters, voter ID sign and other information",
-"Space permitting, place bond issue flyers (English and Spanish) on table for voters",
-"Encourage voters to read sample ballots and info while they are waiting in line");
+    "Space permitting, place bond issue flyers (English and Spanish) on table for voters",
+    "Encourage voters to read sample ballots and info while they are waiting in line");
 // "registration station"
 checklist[3] = new Array("Bring your own stapler, flashlight and calculator",
     "Place 'present ID' sign on tables for voters",
-   "Place Voter Identification handout on tables for Pollbook officers to reference",
+    "Place Voter Identification handout on tables for Pollbook officers to reference",
     "Place Voting Permit cards next to each Pollbook/EPB",
-        "Ask each voter for Full Legal Name and check identification",
+    "Ask each voter for Full Legal Name and check identification",
     "Keep the magnifying glass out on the Check-In table, so voters know that it is available");
 //   "Voting Booth"
 checklist[4] = new Array("Arrange booths for privacy; voters should not have lines/people passing behind them",
-"Check that overhead lights do not create glare on the screen",
-"Tape cords to floor and/or to booth legs for safety");
+    "Check that overhead lights do not create glare on the screen",
+    "Tape cords to floor and/or to booth legs for safety");
 //   "Accessible voting booth"
 checklist[5] = new Array("Place the magnifying glass, magnifying sheet, clip boards and voter assistance forms on pollbook table or ballot table so they are readily available",
-"Provide chairs for seniors and voters who may have difficulty standing in line",
-"Provide an accessible table with privacy screen for paper ballot voters",
-"Place a touch screen machine with a headset (in its booth) on a table for audio ballot voters",
-"Chief will designate Officers to assist curbside voters (outside the polls)",
-"Identify a phone number (cell or office) that curbside voters may call for assistance. Write the  phone number on the “call” sign and post with the curbside voting signs.");
+    "Provide chairs for seniors and voters who may have difficulty standing in line",
+    "Provide an accessible table with privacy screen for paper ballot voters",
+    "Place a touch screen machine with a headset (in its booth) on a table for audio ballot voters",
+    "Chief will designate Officers to assist curbside voters (outside the polls)",
+    "Identify a phone number (cell or office) that curbside voters may call for assistance. Write the  phone number on the “call” sign and post with the curbside voting signs.");
 //   "Ballot stations"
 checklist[6] = new Array("Set out Envelope #4, privacy folders, extra pens, clipboards",
     "Set out Voter Assistance forms for use as needed",
@@ -70,12 +70,12 @@ checklist[6] = new Array("Set out Envelope #4, privacy folders, extra pens, clip
     "Place sign that informs that Spanish language ballots are available");
 //    "observers"
 checklist[7] = new Array("The observers must be registered to vote in Virginia and have written authorization from their party chairman or from an independent candidate who is on the ballot",
-"Does not have to be the same person all day. They may switch off, but each poll watcher must have his/her own authorization form",
-"Must wear a Poll Watcher identification badge (provided by precinct Chief) while inside the polls",
-"Must return the Poll Watcher ID badge when leaving or being replaced by another Poll Watcher for the same candidate",
-"While the polls are open, one representatives per party or candidate are permitted for each pollbook (paper or EPB station.) ",
-"May use an electronic communication device, but may not take photos",
-"May not campaign or display campaign material within the 40-ft. Prohibited Area");
+    "Does not have to be the same person all day. They may switch off, but each poll watcher must have his/her own authorization form",
+    "Must wear a Poll Watcher identification badge (provided by precinct Chief) while inside the polls",
+    "Must return the Poll Watcher ID badge when leaving or being replaced by another Poll Watcher for the same candidate",
+    "While the polls are open, one representatives per party or candidate are permitted for each pollbook (paper or EPB station.) ",
+    "May use an electronic communication device, but may not take photos",
+    "May not campaign or display campaign material within the 40-ft. Prohibited Area");
 //   "BallotBox"
 checklist[8] = new Array("After depositing the ballot, the voter should immediately exit the polling place");
 //   "DRE"
@@ -119,7 +119,7 @@ navigationTabsContent[0] = new Array("Check the supplies in your kit against you
     "Plug in the cart to charge the machine batteries.",
     "Mark Absentees in Paper Precinct Pollbooks with Blue Ink.");
 navigationTabsContent[1] = new Array("Promptly at 5:00 a.m., swear in Election Officers; assign numbers",
-"Welcome authorized representatives (Poll Watchers)",
+    "Welcome authorized representatives (Poll Watchers)",
     "Open voting machine cart",
     "Prepare the Paper Ballots",
     "Check machine ballot against precinct sample ballot",
@@ -147,22 +147,22 @@ navigationTabsContent[2] = new Array(
     "Post a curbside sign with an office or cell phone number to call for assistance",
     "For blind or severely visually-impaired voters notify the voter that an audio ballot is available",
     "For language-minority or illiterate voters any voter may bring an assistant to translate or read the ballot for them"
-);
+    );
 navigationTabsContent[3] =new Array( "At 6:45 p.m. - Announce outside 'The polls will close in 15 minutes'",
-        "Check official TIME at U.S. Naval Observatory: 202-762-1401 or 202-762-1069",
-        "At 7:00 p.m. - Announce outside 'The polls are officially closed'",
-        "After the last voter has voted and departed the polling place welcome authorized Representatives (Poll Watchers)",
-        "Get organized: assign tasks for Election Officer teams",
-        "Team 1 to certify the Pollbook(s) and unused paper ballots",
-        "Team 2 to close touch screen machines",
-        "Team 3 to close the optical scan machine and certify voted paper ballots",
-        "Clean up the area",
-        "Place privacy booths, cardboards, machines and cords into the cart",
-        "Check and lock the Cart",
-        "Seal and Sign Envelope #7A",
-        "Do NOT return ballots in the cart!",
-        "Do NOT put the Blue Bag back into the cart",
-        "The Blue Bag and Ballots must be returned to the Government Center!");
+    "Check official TIME at U.S. Naval Observatory: 202-762-1401 or 202-762-1069",
+    "At 7:00 p.m. - Announce outside 'The polls are officially closed'",
+    "After the last voter has voted and departed the polling place welcome authorized Representatives (Poll Watchers)",
+    "Get organized: assign tasks for Election Officer teams",
+    "Team 1 to certify the Pollbook(s) and unused paper ballots",
+    "Team 2 to close touch screen machines",
+    "Team 3 to close the optical scan machine and certify voted paper ballots",
+    "Clean up the area",
+    "Place privacy booths, cardboards, machines and cords into the cart",
+    "Check and lock the Cart",
+    "Seal and Sign Envelope #7A",
+    "Do NOT return ballots in the cart!",
+    "Do NOT put the Blue Bag back into the cart",
+    "The Blue Bag and Ballots must be returned to the Government Center!");
 function createEditableLayout(index) {
     document.getElementById('diagram').style.backgroundImage="url(./images/Rec"+index+".PNG)";
 }
@@ -180,7 +180,7 @@ function createToolbox() {
         for (var j = 0; j < num_cols; j++) {
             tbody += '<td class="toolboxCell">';
             tbody += '<div class="toolboxImage"><img class="itemImage" title="'+imagesArrayToolTip[imgNum]+'" src="' + imgBase + imagesArray[imgNum] + '" id="img_' + (imgNum) +
-                '"/></div>';
+            '"/></div>';
             tbody += '</td>'
             imgNum++;
         }
@@ -253,16 +253,16 @@ function showTabContent(index) {
     allToDoTab.className = "shown";
 
    //to toggle style between active and inactive tabs
-  for(var j=0; j < navigationTabs.length; j++){
-		var tabLink = document.getElementById("tab_" + j);
-		if(j==index){
-			tabLink.style.color="#FFFFFF";
-			tabLink.style.backgroundColor="#96897A";
-		}else{
-			tabLink.style.removeProperty('color');
-			tabLink.style.removeProperty('background-color');
-		}
-	}		
+   for(var j=0; j < navigationTabs.length; j++){
+      var tabLink = document.getElementById("tab_" + j);
+      if(j==index){
+         tabLink.style.color="#FFFFFF";
+         tabLink.style.backgroundColor="#96897A";
+     }else{
+         tabLink.style.removeProperty('color');
+         tabLink.style.removeProperty('background-color');
+     }
+ }		
 }
 
 function showChecklist(ev, windowname) {
