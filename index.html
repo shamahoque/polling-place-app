@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="styles/homepage.css" type="text/css" />
   <link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
+  <link rel="stylesheet" href="styles/jquery.ui.rotatable.css">
   <style type="text/css">
   .outline_options{
     width: 500px; 
@@ -21,9 +22,11 @@
   .toolboxImage:hover img{
     width: 90px;
     height: 60px;
-  }
-  .toolboxImage:hover .rotator{
-    background-image: url("images/rotate.png")
+    -webkit-transition-delay:0.4s;     
+    -moz-transition-delay:0.4s; 
+    -ms-transition-delay:0.4s;     
+    -o-transition-delay:0.4s;     
+    transition-delay:0.4s;
   }
   .outline_options img {
     width: 120px;
@@ -155,7 +158,7 @@
 <script type="text/javascript" src="js/diagram.js"></script>
 <script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
-
+<script src="js/jquery/jquery.ui.rotatable.js"></script>
 
 <script type="text/javascript">
 
@@ -175,26 +178,13 @@ function init() {
         clickDroppedItem();
         return true;
       }
-      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).addClass('drop'));
+      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
-      applyRotation();
+
     }
   });
 
-          // Create handle dynamically
-          $('<div class="rotator"></div>').appendTo(ele).addClass('handler').css({
-            'position': 'absolute',
-            'bottom': -30,
-            'right': 7,
-            'height': 25,
-            'width': 25
-          });
-
           ele.css('position', 'relative');
-
-          applyRotation();
-
-
         }
 
         function clickDroppedItem (){

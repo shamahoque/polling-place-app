@@ -23,10 +23,16 @@ body {
     height: 43px;
     cursor: pointer;
 
+
 }
 .toolboxImage img {
     width: 63px;
     height: 43px;
+    -webkit-transition:0s width, height;     
+    -moz-transition:0s width, height; 
+    -ms-transition:0s width, height;     
+    -o-transition:0s width, height;     
+    transition:0s width, height;
 }
 
 .drop img {
