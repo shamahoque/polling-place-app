@@ -28,6 +28,7 @@
     -o-transition-delay:0.4s;     
     transition-delay:0.4s;
   }
+  
   .outline_options img {
     width: 120px;
     height: 84px;
@@ -180,13 +181,25 @@ function init() {
       }
       $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
+      // Create handle dynamically
+    $('<div class="delete"></div>').appendTo($('.drop'));
+    clickDelete();
+
 
     }
   });
 
           ele.css('position', 'relative');
-        }
 
+
+  }
+        function clickDelete(){
+            $('.delete').click(function(event){
+              console.log(event.target.className);
+                if (event.target.className == "delete")
+                  $(event.target).parent().remove();
+            });
+        }
         function clickDroppedItem (){
           $('.drop').click(function(event){
             console.log(event.target);
