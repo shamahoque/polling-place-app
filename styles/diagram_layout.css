@@ -37,11 +37,11 @@ body {
 .toolboxImage:hover .delete{
         background-image: url(../images/close.png);
         background-size: 100%;
-        -webkit-transition-delay:0.4s;     
-    -moz-transition-delay:0.4s; 
-    -ms-transition-delay:0.4s;     
-    -o-transition-delay:0.4s;     
-    transition-delay:0.4s;
+        -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
   
 } 
 

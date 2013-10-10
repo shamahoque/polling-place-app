@@ -7,11 +7,11 @@
 	background-size: 100%;
 	left: 2px;
 	bottom: 2px;
-	-webkit-transition-delay:0.4s;     
-    -moz-transition-delay:0.4s; 
-    -ms-transition-delay:0.4s;     
-    -o-transition-delay:0.4s;     
-    transition-delay:0.4s;
+	-webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
 }
 .ui-rotatable-handle {
 }
