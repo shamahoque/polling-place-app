@@ -182,55 +182,79 @@ function init() {
       $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
       // Create handle dynamically
-    $('<div class="delete"></div>').appendTo($('.drop'));
-    clickDelete();
+      $('<div class="delete"></div>').appendTo($('.drop'));
+      $('<div class="clone"></div>').appendTo($('.drop'));
+      clickDelete();
+      clickClone();
 
 
     }
   });
 
-          ele.css('position', 'relative');
+  ele.css('position', 'relative');
 
 
-  }
-        function clickDelete(){
-            $('.delete').click(function(event){
-              console.log(event.target.className);
-                if (event.target.className == "delete")
-                  $(event.target).parent().remove();
-            });
-        }
-        function clickDroppedItem (){
-          $('.drop').click(function(event){
-            console.log(event.target);
-            showChecklist(event, 'popUpDiv');
-          });
+}
 
-        }
+function clickClone(){
+  $('.clone').click(function(event){
+    console.log(event.target.className);
+    if (event.target.className == "clone"){
+      var clonedElement = $(event.target).parent().clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle});
+      clonedElement.children('.ui-rotatable-handle').remove();
+      clonedElement.rotatable();
+      console.log(event.clientX);
+       clonedElement.css({
+          'left': event.clientX + 30,
+          'top': event.clientY
+        });
+       clonedElement.appendTo($('#edit'));
+       clickDroppedItem();
+       clickDelete();
+      clickClone();
+    }
 
-        function removeStyle(event, ui){
-          $(event.target).removeClass("toolboxImage");
-        }
+  });
+}
+function clickDelete(){
+  $('.delete').click(function(event){
+    console.log(event.target.className);
+    if (event.target.className == "delete")
+      $(event.target).parent().remove();
+  });
+}
+function clickDroppedItem (){
+  $('.drop').click(function(event){
+    console.log(event.target);
+    if (event.target.className != "delete")
+      showChecklist(event, 'popUpDiv');
+  });
 
-        function addStyle(event, ui){
-          $(event.target).addClass("toolboxImage");
-        }
+}
 
-        function applyRotation() {
-          $('.handler').draggable({
-            opacity: 0.01,
-            helper: 'clone',
-            drag: function (event, ui) {
-              var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
-              $(this).parent().css({
-                '-moz-transform': rotateCSS,
-                '-webkit-transform': rotateCSS
-              });
-            }
-          });
-        }
+function removeStyle(event, ui){
+  $(event.target).removeClass("toolboxImage");
+}
 
-        </script>
+function addStyle(event, ui){
+  $(event.target).addClass("toolboxImage");
+}
 
-      </body>
-      </html>
+function applyRotation() {
+  $('.handler').draggable({
+    opacity: 0.01,
+    helper: 'clone',
+    drag: function (event, ui) {
+      var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+      $(this).parent().css({
+        '-moz-transform': rotateCSS,
+        '-webkit-transform': rotateCSS
+      });
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>

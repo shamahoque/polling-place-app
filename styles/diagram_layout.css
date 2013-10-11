@@ -11,11 +11,11 @@ body {
     background-color: #EEEEDD
 }
 #toolbox {
-   float: left;
-   width: 25%;
-   border: 1px solid grey;
-   text-align: center;
-   padding: 10px;
+ float: left;
+ width: 25%;
+ border: 1px solid grey;
+ text-align: center;
+ padding: 10px;
 
 }
 .toolboxImage {
@@ -35,22 +35,41 @@ body {
     transition:0s width, height;
 }
 .toolboxImage:hover .delete{
-        background-image: url(../images/close.png);
-        background-size: 100%;
-        -webkit-transition-delay:0.5s;     
+    background-image: url(../images/close.png);
+    background-size: 100%;
+    -webkit-transition-delay:0.5s;     
     -moz-transition-delay:0.5s; 
     -ms-transition-delay:0.5s;     
     -o-transition-delay:0.5s;     
     transition-delay:0.5s;
-  
+
 } 
 
+.toolboxImage:hover .clone{
+    background-image: url(../images/clone.png);
+    background-size: 100%;
+    -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
+    
+}
+
+.clone {
+    position: absolute;
+    bottom: -65%;
+    right: -25px;
+    height: 15px;
+    width: 40px;
+}
+
 .delete{
-        position: absolute;
-        bottom: 75%;
-        right: -25px;
-        height: 20px;
-        width: 20px;
+    position: absolute;
+    bottom: 75%;
+    right: -25px;
+    height: 20px;
+    width: 20px;
 }
 .drop img {
     width: 63px;
