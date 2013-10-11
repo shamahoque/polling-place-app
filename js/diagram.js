@@ -193,15 +193,15 @@ function createToDoDivs(imgId) {
     var allToDos = document.getElementById("allToDos");
     var match = imgId.match(/\d+/);
     var index = parseInt(match[0]);
-    var checkboxList = "";
+    var checkboxList = "<h3>Checklist:</h3>";
     var clonedDiv = document.getElementById('checkboxToDoList').cloneNode(true);
     var list = checklist[index];
     for (var j = 0; j < list.length; j++) {
-        checkboxList += '<input type="checkbox">' + list[j] + '</input><br/>';
+        checkboxList += '<input type="checkbox">' + list[j] + '</input><br/><br/>';
     }
     clonedDiv.id = "clon_div_" + imgId;
     clonedDiv.innerHTML = checkboxList;
-    clonedDiv.className = "hidden";
+    clonedDiv.style.display = "none";
     allToDos.appendChild(clonedDiv);
 
 }
@@ -265,20 +265,12 @@ function showTabContent(index) {
  }		
 }
 
-function showChecklist(ev, windowname) {
-    createToDoDivs(ev.target.id);
-    //get all other divs
-    var allToDos = document.getElementById("allToDos");
-    var children = allToDos.childNodes;
-    for (var i = 0; i < children.length; i++) {
-        var child = children [i];
-        if (child.tagName == "DIV" && child.id.indexOf("clon_div_") != -1) {
-            child.className = "hidden";
-        }
+function showChecklist(ev) {
+    console.log($("#clon_div_"+ev.target.id).length);
+    if($("#clon_div_"+ev.target.id).length == 0){
+        createToDoDivs(ev.target.id);
     }
-    var toDoDiv = document.getElementById("clon_div_" + ev.target.id)
-    toDoDiv.className = "shown";
-    popup(windowname);
+
 }
 
 function reset() {
@@ -287,62 +279,10 @@ function reset() {
 }
 
 
-function toggle(div_id) {
-    var el = document.getElementById(div_id);
-    if (el.style.display == 'none') {
-        el.style.display = 'block';
-    }
-    else {
-        el.style.display = 'none';
-    }
-}
-function blanket_size(popUpDivVar) {
-    if (typeof window.innerWidth != 'undefined') {
-        viewportheight = window.innerHeight;
-    } else {
-        viewportheight = document.documentElement.clientHeight;
-    }
-    if ((viewportheight > document.body.parentNode.scrollHeight) && (viewportheight > document.body.parentNode.clientHeight)) {
-        blanket_height = viewportheight;
-    } else {
-        if (document.body.parentNode.clientHeight > document.body.parentNode.scrollHeight) {
-            blanket_height = document.body.parentNode.clientHeight;
-        } else {
-            blanket_height = document.body.parentNode.scrollHeight;
-        }
-    }
-    var blanket = document.getElementById('blanket');
-    blanket.style.height = blanket_height + 'px';
-    var popUpDiv = document.getElementById(popUpDivVar);
-    popUpDiv_height = blanket_height / 2 - 200;//200 is half popup's height
-    popUpDiv.style.top = popUpDiv_height + 'px';
-  //  popUpDiv.style.height = '200px';
-}
-function window_pos(popUpDivVar) {
-    if (typeof window.innerWidth != 'undefined') {
-        viewportwidth = window.innerHeight;
-    } else {
-        viewportwidth = document.documentElement.clientHeight;
-    }
-    if ((viewportwidth > document.body.parentNode.scrollWidth) && (viewportwidth > document.body.parentNode.clientWidth)) {
-        window_width = viewportwidth;
-    } else {
-        if (document.body.parentNode.clientWidth > document.body.parentNode.scrollWidth) {
-            window_width = document.body.parentNode.clientWidth;
-        } else {
-            window_width = document.body.parentNode.scrollWidth;
-        }
-    }
-    var popUpDiv = document.getElementById(popUpDivVar);
-    window_width = window_width / 2 - 200;//200 is half popup's width
-    popUpDiv.style.left = window_width + 'px';
-}
-function popup(windowname) {
-    blanket_size(windowname);
-    window_pos(windowname);
-    toggle('blanket');
-    toggle(windowname);
-}
+
+
+
+
 
 
 function escapeHTML(s) {

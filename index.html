@@ -130,14 +130,10 @@
         </table>
 
       </div> 
-      <div id="blanket" style="display:none"></div>
-      <div id="popUpDiv" style="display:none">
-        <a href="#" id="close" onclick="popup('popUpDiv')">Close </a>
 
-        <h3>Checklist:</h3>
 
         <div id="allToDos"></div>
-      </div>
+      
 
       <div id="checkboxToDoList"></div>
       <div id="tabsToDoList"></div>
@@ -160,6 +156,8 @@
 <script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
 <script src="js/jquery/jquery.ui.rotatable.js"></script>
+<script src='js/jquery/jquery.simplemodal.1.4.4.min.js' type='text/javascript'></script>
+
 
 <script type="text/javascript">
 
@@ -204,13 +202,13 @@ function clickClone(){
       clonedElement.children('.ui-rotatable-handle').remove();
       clonedElement.rotatable();
       console.log(event.clientX);
-       clonedElement.css({
-          'left': event.clientX + 30,
-          'top': event.clientY
-        });
-       clonedElement.appendTo($('#edit'));
-       clickDroppedItem();
-       clickDelete();
+      clonedElement.css({
+        'left': event.clientX + 30,
+        'top': event.clientY
+      });
+      clonedElement.appendTo($('#edit'));
+      clickDroppedItem();
+      clickDelete();
       clickClone();
     }
 
@@ -226,8 +224,11 @@ function clickDelete(){
 function clickDroppedItem (){
   $('.drop').click(function(event){
     console.log(event.target);
-    if (event.target.className != "delete")
-      showChecklist(event, 'popUpDiv');
+    if (event.target.className != "delete" && event.target.className != "clone"){
+      showChecklist(event);
+      event.preventDefault();
+    $("#clon_div_"+event.target.id).modal();
+  }
   });
 
 }
