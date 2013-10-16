@@ -1,14 +1,4 @@
-/*
-Template Name: MyFolio
-File: Layout CSS
-Author: OS Templates
-Author URI: http://www.os-templates.com/
-Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
-*/
 
-@import url(navi.css);
-@import url(forms.css);
-/*@import url(tables.css);*/
 
 body{
 	margin:0;
@@ -81,60 +71,8 @@ div.wrapper{
 	padding-top:10px;
 }
 
-#topbar ul{
-	margin:0;
-	padding:0;
-	list-style:none;
-}
 
-#topbar #social{
-	display:block;
-	float:right;
-}
 
-#topbar #social li{
-	display:inline;
-	margin-left:20px;
-	cursor:pointer;
-}
-
-#topbar #search{
-	display:block;
-	float:left;
-}
-
-#topbar #search form, #topbar #search fieldset, #topbar #search legend{
-	margin:0;
-	padding:0;
-	border:none;
-}
-
-#topbar #search legend{
-	display:none;
-}
-
-#topbar #search input{
-	display:block;
-	float:left;
-	width:229px;
-	margin:0;
-	padding:5px;
-	color:#CCCCCC;
-	background-color:#393939;
-	border:1px solid #000000;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
-}
-
-#topbar #search input#submit{
-	display:block;
-	width:auto;
-	height:auto;
-	margin:0 0 0 5px;
-	padding:4px;
-	color:#CCCCCC;
-	background-color:#1A1A1A;
-}
 
 /* ----------------------------------------------Head-------------------------------------*/
 .col3 button{
@@ -142,7 +80,7 @@ div.wrapper{
 	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	
+
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #7BAB96));
 	background:-moz-linear-gradient(top, #768d87 5%, #7BAB96 100%);
 	background:-webkit-linear-gradient(top, #768d87 5%, #7BAB96 100%);
@@ -150,25 +88,88 @@ div.wrapper{
 	background:-ms-linear-gradient(top, #768d87 5%, #7BAB96 100%);
 	background:linear-gradient(to bottom, #768d87 5%, #7BAB96 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#7BAB96',GradientType=0);
-	
+
 	background-color:#7BAB96;
-	
+
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	
+
 	border:1px solid #7BAB96;
-	
+
 	display:inline-block;
 	color:#ffffff;
 	font-family:arial;
 	font-size:14px;
-	
+
 	padding:3px 23px;
 	text-decoration:none;
-	
+
 	text-shadow:0px -1px 0px #2b665e;
-}	
+}
+
+#checklistMenu{
+	float:right;
+	width:210px;
+	height: 23px;
+	background-color: white;
+	border: 1px solid #7BAB96;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-right: 20px; 
+	text-align: center;
+	cursor: pointer;
+	
+}
+
+.checklistButton{
+	font-size:16px;
+	color: #669999;
+}
+#checklist {
+	list-style: none;
+	width:120px;
+	margin: 0px 15px; 
+	-webkit-padding-start: 5px;
+	cursor: pointer;
+	padding: 2px;
+}
+#menu {
+	
+}
+
+#menu ul{
+	width: 170px;
+	display: none;
+	z-index: 999;
+	position: absolute;
+	list-style: none;
+	-webkit-padding-start: 0px;
+	-moz-padding-start: 0px;
+
+}
+
+#menu ul li{
+	background-color:#669999;
+	
+	padding: 10px;
+	border-bottom:1px solid white;
+}
+#menu ul li a{
+	color:white;
+}
+
+#menu ul li:hover a{
+	background-color: white; 
+	color:#7BAB96;
+}
+#checklistMenu:hover ul{
+	display: block;
+
+}
+
+
 #head{
 	padding-top: 20px;
 	z-index:1000;
@@ -179,7 +180,7 @@ div.wrapper{
 	font-family:Georgia, "Times New Roman", Times, serif;
 }
 
-#head h1, #head p, #head ul, #head a{
+#head h1, #head p, #head a{
 	margin:0;
 	padding:0;
 	list-style:none;
@@ -212,55 +213,7 @@ div.wrapper{
 	text-align:right;
 }
 
-#head ul#buttons{
-	display:block;
-	position:absolute;
-	top:10px;
-	right:0;
-	width:300px;
-	height:250px;
-}
 
-#head ul#buttons li{
-	display:block;
-	width:300px;
-	height:60px;
-	margin-bottom:35px;
-}
-
-#head ul#buttons li a{
-	display:block;
-	width:300px;
-	height:60px;
-	text-indent:-4000em;
-}
-
-#head ul#buttons li.blog a{background:url("../images/blog.gif") top left no-repeat;}
-#head ul#buttons li.portfolio a{background:url("../images/portfolio.gif") top left no-repeat;}
-#head ul#buttons li.download{margin-bottom:0;}
-#head ul#buttons li.download a{background:url("../images/download.gif") top left no-repeat; margin-bottom:0;}
-
-
-/* ----------------------------------------------Breadcrumb Navigation-------------------------------------*/
-
-#breadcrumb{padding:15px 0;}
-
-#breadcrumb a{
-	color:#FF6600;
-	background-color:#EEEEDD;
-}
-
-#breadcrumb ul{
-	margin:0;
-	padding:0;
-	list-style:none;
-}
-
-#breadcrumb ul li{display:inline;}
-#breadcrumb ul li.first{font-weight:bold;}
-#breadcrumb ul li.current a{text-decoration:underline;}
-
-/* ----------------------------------------------Container-------------------------------------*/
 
 #container{
 	padding:15px 0;
@@ -318,20 +271,7 @@ div.wrapper{
 	margin:5px 0 8px 0;
 }
 
-#mylayout9{
-	display:block;
-	background:url(../images/Rec9.PNG);
-	position:relative;
-	margin:2px auto 2px auto;
-}
 
-#mylayout1{
-	display:block;
-	background:url('../images/Rec9.PNG');
-	background-repeat:no-repeat;
-	position:relative;
-	margin:2px auto 2px auto;
-}
 /* ----------------------------------------------Footer-------------------------------------*/
 
 #copyright{

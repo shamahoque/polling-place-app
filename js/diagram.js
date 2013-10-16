@@ -96,8 +96,8 @@ checklist[15] = new Array("Refuse for help materials");
 var navigationTabs = new Array(4);
 navigationTabs[0] = "Prior to Election Day";
 navigationTabs[1] = "Opening the Polls";
-navigationTabs[2] = "During the day";
-navigationTabs[3] = "Closing the poles";
+navigationTabs[2] = "During the Day";
+navigationTabs[3] = "Closing the Polls";
 
 var navigationTabsContent = new Array(4);
 navigationTabsContent[0] = new Array("Check the supplies in your kit against your supply list",
@@ -206,7 +206,7 @@ function createToDoDivs(imgId) {
 
 }
 
-function createTabNav() {
+/*function createTabNav() {
     var tabs = "";
     tabs += '<ul>';
     for (var i = 0; i < navigationTabs.length; i++) {
@@ -215,14 +215,14 @@ function createTabNav() {
     tabs += '</ul>';
     var topNav = document.getElementById("topnav");
     topNav.innerHTML = tabs;
-}
+}*/
 
 function createTabContent() {
     var allToDosTabs = document.getElementById("tabContent");
     var prevClonedDiv = null;
 
     for (var i = 0; i < navigationTabsContent.length; i++) {
-        var checkboxList = "";
+        var checkboxList = "<h3>"+navigationTabs[i]+"</h3>";
         var clonedDiv = document.getElementById('tabsToDoList').cloneNode(true);
         var checklist = navigationTabsContent[i];
         for (j = 0; j < checklist.length; j++) {
@@ -231,7 +231,7 @@ function createTabContent() {
 
         clonedDiv.id = "clon_todo_div_" + i;
         clonedDiv.innerHTML = checkboxList;
-        clonedDiv.className = "hidden";
+        clonedDiv.style.display = "none";
         allToDosTabs.insertBefore(clonedDiv, prevClonedDiv);
 
     }
@@ -316,7 +316,7 @@ function makeLayoutPage(layout_number){
     document.getElementById("layout_edit").style.display = "block";
     createEditableLayout(layout_number);
     createToolbox();
-    createTabNav();
+    //createTabNav();
     createTabContent();
     $( init );
 
