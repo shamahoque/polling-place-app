@@ -168,12 +168,12 @@ function createEditableLayout(index) {
 }
 function createToolbox() {
     var imgNum = 0;
-    var num_rows = 4;
-    var num_cols = 3;
+    var num_rows = 6;
+    var num_cols = 2;
     var title = "<h3>Toolbox</h3>"
-    var instructions = "<h4> Drag and drop the furniture in the outline. Click each image to see helpful checklists.</h4>";
+    var instructions = "<h4> Drag and drop the furniture in the outline. Click each image to see helpful checklists.</h4> <div class='toolboxTable'>";
     var tbody = '';
-    var theader = '<table border="0" class="toolboxTable">\n';
+    var theader = '<table border="0">\n';
     var imgBase = qualifyURL("./images/toolbox/");
     for (var i = 0; i < num_rows; i++) {
         tbody += '<tr>';
@@ -186,7 +186,7 @@ function createToolbox() {
         }
         tbody += '</tr>\n';
     }
-    var tfooter = '</table></div>';
+    var tfooter = '</table></div></div>';
     document.getElementById('toolbox').innerHTML = title + instructions + theader + tbody + tfooter;
 }
 function createToDoDivs(imgId) {
@@ -218,23 +218,25 @@ function createToDoDivs(imgId) {
 }*/
 
 function createTabContent() {
-    var allToDosTabs = document.getElementById("tabContent");
-    var prevClonedDiv = null;
-
+    var tabs = "";
+    tabs += '<ul>';
+    for (var i = 0; i < navigationTabs.length; i++) {
+        tabs += '<li><a href="#tabs-'+i+'">' + navigationTabs[i] + '</a></li>';
+    }
+    tabs += '</ul>';
+    var topNav = document.getElementById("tabNav");
+  
     for (var i = 0; i < navigationTabsContent.length; i++) {
-        var checkboxList = "<h3>"+navigationTabs[i]+"</h3>";
-        var clonedDiv = document.getElementById('tabsToDoList').cloneNode(true);
+        tabs += "<div id='tabs-"+i+"'>";
         var checklist = navigationTabsContent[i];
         for (j = 0; j < checklist.length; j++) {
-            checkboxList += '<input type="checkbox">' + checklist[j] + '</input><br/>';
+            tabs += '<input type="checkbox">' + checklist[j] + '</input><br/>';
         }
-
-        clonedDiv.id = "clon_todo_div_" + i;
-        clonedDiv.innerHTML = checkboxList;
-        clonedDiv.style.display = "none";
-        allToDosTabs.insertBefore(clonedDiv, prevClonedDiv);
+        tabs += "</div>";
+        
 
     }
+    topNav.innerHTML = tabs;
 
 
 }
@@ -319,5 +321,158 @@ function makeLayoutPage(layout_number){
     //createTabNav();
     createTabContent();
     $( init );
+    $( "#tabNav" ).tabs();
 
+}
+
+//New code - jquery and JS to implement the new functionality
+// TO-DO: Refactor
+var ele;
+
+function init() {
+    var visible = true;
+  ele = $('.toolboxImage');
+  $('.toolboxImage').draggable({
+    helper: "clone"
+  });
+
+
+
+  $('#diagram').droppable({
+    drop: function (event, ui) {
+      if ($(ui.helper).hasClass('drop')){
+        clickDroppedItem();
+        return true;
+      }
+      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
+      clickDroppedItem();
+      // Create handle dynamically
+      $('<div class="delete"></div>').appendTo($('.drop'));
+      $('<div class="clone"></div>').appendTo($('.drop'));
+      clickDelete();
+      clickClone();
+
+
+    }
+  });
+
+  ele.css('position', 'relative');
+//checklists
+
+  $('#checklistMenu').click(function(event){
+
+    $('#checklistMenu').hide();
+    $('#workspaceMenu').show();
+    if ( visible ) {
+        $('#edit_body').slideUp('fast',function(){
+            $('#edit_body').addClass('hide')
+            .slideDown(0);
+        });
+        $('#checklist_view').slideUp(0,function(){
+            $('#checklist_view').removeClass('hide')
+            .slideDown('fast');
+        });
+    } else {
+        $('#edit_body').slideUp(0,function(){
+            $('#edit_body').removeClass('hide')
+            .slideDown('fast');
+        });
+        $('#checklist_view').slideUp('fast',function(){
+            $('#checklist_view').addClass('hide')
+            .slideDown(0);
+        });
+    }
+    visible = ! visible;
+  });
+
+  $('#workspaceMenu').click(function(event){
+
+    $('#workspaceMenu').hide();
+    $('#checklistMenu').show();
+    
+    if ( visible ) {
+        $('#edit_body').slideUp('fast',function(){
+            $('#edit_body').addClass('hide')
+            .slideDown(0);
+        });
+        $('#checklist_view').slideUp(0,function(){
+            $('#checklist_view').removeClass('hide')
+            .slideDown('fast');
+        });
+    } else {
+        $('#edit_body').slideUp(0,function(){
+            $('#edit_body').removeClass('hide')
+            .slideDown('fast');
+        });
+        $('#checklist_view').slideUp('fast',function(){
+            $('#checklist_view').addClass('hide')
+            .slideDown(0);
+        });
+    }
+    visible = ! visible;
+  });
+
+  
+
+}
+
+function clickClone(){
+  $('.clone').click(function(event){
+    console.log(event.target.className);
+    if (event.target.className == "clone"){
+      var clonedElement = $(event.target).parent().clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle});
+      clonedElement.children('.ui-rotatable-handle').remove();
+      clonedElement.rotatable();
+      console.log(event.clientX);
+      clonedElement.css({
+        'left': event.clientX + 30,
+        'top': event.clientY
+      });
+      clonedElement.appendTo($('#edit'));
+      clickDroppedItem();
+      clickDelete();
+      clickClone();
+    }
+
+  });
+}
+function clickDelete(){
+  $('.delete').click(function(event){
+    console.log(event.target.className);
+    if (event.target.className == "delete")
+      $(event.target).parent().remove();
+  });
+}
+function clickDroppedItem (){
+  $('.drop').click(function(event){
+    console.log(event.target);
+    if (event.target.className != "delete" && event.target.className != "clone"){
+      showChecklist(event);
+      event.preventDefault();
+    $("#clon_div_"+event.target.id).modal();
+  }
+  });
+
+}
+
+function removeStyle(event, ui){
+  $(event.target).removeClass("toolboxImage");
+}
+
+function addStyle(event, ui){
+  $(event.target).addClass("toolboxImage");
+}
+
+function applyRotation() {
+  $('.handler').draggable({
+    opacity: 0.01,
+    helper: 'clone',
+    drag: function (event, ui) {
+      var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+      $(this).parent().css({
+        '-moz-transform': rotateCSS,
+        '-webkit-transform': rotateCSS
+      });
+    }
+  });
 }

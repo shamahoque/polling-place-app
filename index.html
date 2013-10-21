@@ -6,49 +6,7 @@
   <link rel="stylesheet" href="styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
   <link rel="stylesheet" href="styles/jquery.ui.rotatable.css">
-  <style type="text/css">
-  .outline_options{
-    width: 500px; 
-    height: 400px; 
-    padding: 15px; 
-    float: right; 
-    border:2px solid; 
-    border-radius:15px; 
-    background-color:white; 
-    box-shadow: 10px 10px 5px #888888;
-
-  }
-  .toolboxImage:hover img{
-    width: 90px;
-    height: 60px;
-    -webkit-transition-delay:0.4s;     
-    -moz-transition-delay:0.4s; 
-    -ms-transition-delay:0.4s;     
-    -o-transition-delay:0.4s;     
-    transition-delay:0.4s;
-  }
-  
-  .outline_options img {
-    width: 120px;
-    height: 84px;
-    /*padding: 20px;*/
-  }
-  .outline_options img:hover {
-   border: 2px dashed black;
-   cursor: pointer;
- }
- td {
-  padding: 15px;
-}
-#edit_body{
-  padding-top: 8px;
-  padding-left: 10px;
-  height: 524px;
-}
-
-
-</style>
-
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body id="top">
   <div class="wrapper col1">
@@ -94,30 +52,22 @@
       </div>
     </div>
 
-    <div id="layout_edit" style="display:none; height: 620px;">
+    <div id="layout_edit" style="display:none; height: 683px;">
       <div class="col3">
         Polling Place Application
         <button onclick="location.reload();">Choose a different outline</button>
-        <button onclick="saveCopy();">Save Diagram</button>
+        <button onclick="saveCopy();">Save</button>
         <button onclick="reset();">Reset</button>
         
         <div id="checklistMenu">
           <span class='checklistButton'>Checklists</span>
-          <br/>
-        <ul id="checklist">
-         <li id="menu">
-            <ul>
-              <li><a id="0" href="#">Prior to Election Day</a></li>
-              <li><a id="1" href="#">Opening the Polls</a></li>
-              <li><a id="2" href="#">During the Day</a></li>
-              <li><a id="3" href="#">Closing the Polls</a></li>
-            </ul>
-        </li>
-        </ul>
+      </div>
+      <div id="workspaceMenu">
+          <span class='workspaceButton'>Workspace</span>
       </div>
       </div>
       <div id="edit_body">
-        <div id="edit" style="padding:0px 44px 0px 40px;">
+        <div id="edit">
           <div id="diagram">
           </div>
         </div>
@@ -125,28 +75,15 @@
         <div id="toolbox">
         </div>
       </div>
-      <div style="padding-left: 30px">       
-        <!-- <h3 style="padding-left: 18px">General Checklists:</h3> -->
-
-        <table>
-          <tr>
-            <td style="padding-bottom:0px">
-              <div id="topnav">
-              </div>
-
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-top:0px">
-              <div id="tabContent"></div>
-            </td>
-          </tr>
-        </table>
-
-      </div> 
+    <div id="checklist_view" class="hide">
+      <div id='tabNav'>
 
 
+
+      </div>
+      
         <div id="allToDos"></div>
+    </div> 
       
 
       <div id="checkboxToDoList"></div>
@@ -155,7 +92,7 @@
 
 
   </div>
-</div>
+
 
 <div class="wrapper col5">
   <div id="copyright">
@@ -171,112 +108,6 @@
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
 <script src="js/jquery/jquery.ui.rotatable.js"></script>
 <script src='js/jquery/jquery.simplemodal.1.4.4.min.js' type='text/javascript'></script>
-
-
-<script type="text/javascript">
-
-var ele;
-
-function init() {
-  ele = $('.toolboxImage');
-  $('.toolboxImage').draggable({
-    helper: "clone"
-  });
-
-
-
-  $('#diagram').droppable({
-    drop: function (event, ui) {
-      if ($(ui.helper).hasClass('drop')){
-        clickDroppedItem();
-        return true;
-      }
-      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
-      clickDroppedItem();
-      // Create handle dynamically
-      $('<div class="delete"></div>').appendTo($('.drop'));
-      $('<div class="clone"></div>').appendTo($('.drop'));
-      clickDelete();
-      clickClone();
-
-
-    }
-  });
-
-  ele.css('position', 'relative');
-//checklists
-
-  $('#menu ul li a').click(function(event){
-    console.log(event.target.id);
-    $("#clon_todo_div_"+event.target.id).modal();
-  });
-
-  
-
-}
-
-function clickClone(){
-  $('.clone').click(function(event){
-    console.log(event.target.className);
-    if (event.target.className == "clone"){
-      var clonedElement = $(event.target).parent().clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle});
-      clonedElement.children('.ui-rotatable-handle').remove();
-      clonedElement.rotatable();
-      console.log(event.clientX);
-      clonedElement.css({
-        'left': event.clientX + 30,
-        'top': event.clientY
-      });
-      clonedElement.appendTo($('#edit'));
-      clickDroppedItem();
-      clickDelete();
-      clickClone();
-    }
-
-  });
-}
-function clickDelete(){
-  $('.delete').click(function(event){
-    console.log(event.target.className);
-    if (event.target.className == "delete")
-      $(event.target).parent().remove();
-  });
-}
-function clickDroppedItem (){
-  $('.drop').click(function(event){
-    console.log(event.target);
-    if (event.target.className != "delete" && event.target.className != "clone"){
-      showChecklist(event);
-      event.preventDefault();
-    $("#clon_div_"+event.target.id).modal();
-  }
-  });
-
-}
-
-function removeStyle(event, ui){
-  $(event.target).removeClass("toolboxImage");
-}
-
-function addStyle(event, ui){
-  $(event.target).addClass("toolboxImage");
-}
-
-function applyRotation() {
-  $('.handler').draggable({
-    opacity: 0.01,
-    helper: 'clone',
-    drag: function (event, ui) {
-      var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
-      $(this).parent().css({
-        '-moz-transform': rotateCSS,
-        '-webkit-transform': rotateCSS
-      });
-    }
-  });
-}
-
-</script>
 
 </body>
 </html>
