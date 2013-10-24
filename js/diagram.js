@@ -364,20 +364,20 @@ function init() {
     $('#checklistMenu').hide();
     $('#workspaceMenu').show();
     if ( visible ) {
-        $('#edit_body').slideUp('fast',function(){
+        $('#edit_body').slideUp('slow','swing', function(){
             $('#edit_body').addClass('hide')
             .slideDown(0);
         });
         $('#checklist_view').slideUp(0,function(){
             $('#checklist_view').removeClass('hide')
-            .slideDown('fast');
+            .slideDown('slow', 'swing');
         });
     } else {
         $('#edit_body').slideUp(0,function(){
             $('#edit_body').removeClass('hide')
-            .slideDown('fast');
+            .slideDown('slow', 'swing');
         });
-        $('#checklist_view').slideUp('fast',function(){
+        $('#checklist_view').slideUp('slow', 'swing', function(){
             $('#checklist_view').addClass('hide')
             .slideDown(0);
         });
@@ -391,20 +391,20 @@ function init() {
     $('#checklistMenu').show();
     
     if ( visible ) {
-        $('#edit_body').slideUp('fast',function(){
+        $('#edit_body').slideUp('slow', 'swing', function(){
             $('#edit_body').addClass('hide')
             .slideDown(0);
         });
         $('#checklist_view').slideUp(0,function(){
             $('#checklist_view').removeClass('hide')
-            .slideDown('fast');
+            .slideDown('slow', 'swing');
         });
     } else {
         $('#edit_body').slideUp(0,function(){
             $('#edit_body').removeClass('hide')
-            .slideDown('fast');
+            .slideDown('slow', 'swing');
         });
-        $('#checklist_view').slideUp('fast',function(){
+        $('#checklist_view').slideUp('slow', 'swing', function(){
             $('#checklist_view').addClass('hide')
             .slideDown(0);
         });

@@ -41,22 +41,22 @@ body {
 .toolboxImage:hover .delete{
     background-image: url(../images/x.png);
     background-size: 100%;
-    -webkit-transition-delay:0.5s;     
-    -moz-transition-delay:0.5s; 
-    -ms-transition-delay:0.5s;     
-    -o-transition-delay:0.5s;     
-    transition-delay:0.5s;
+    -webkit-transition-delay:0.7s;     
+    -moz-transition-delay:0.7s; 
+    -ms-transition-delay:0.7s;     
+    -o-transition-delay:0.7s;     
+    transition-delay:0.7s;
 
 } 
 
 .toolboxImage:hover .clone{
     background-image: url(../images/clone.png);
     background-size: 100%;
-    -webkit-transition-delay:0.5s;     
-    -moz-transition-delay:0.5s; 
-    -ms-transition-delay:0.5s;     
-    -o-transition-delay:0.5s;     
-    transition-delay:0.5s;
+    -webkit-transition-delay:0.7s;     
+    -moz-transition-delay:0.7s; 
+    -ms-transition-delay:0.7s;     
+    -o-transition-delay:0.7s;     
+    transition-delay:0.7s;
     
 }
 
@@ -74,11 +74,11 @@ body {
   .toolboxImage:hover img{
     width: 90px;
     height: 60px;
-    -webkit-transition-delay:0.4s;     
-    -moz-transition-delay:0.4s; 
-    -ms-transition-delay:0.4s;     
-    -o-transition-delay:0.4s;     
-    transition-delay:0.4s;
+    -webkit-transition-delay:0.7s;     
+    -moz-transition-delay:0.7s; 
+    -ms-transition-delay:0.7s;     
+    -o-transition-delay:0.7s;     
+    transition-delay:0.7s;
   }
   
   .outline_options img {
