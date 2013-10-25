@@ -264,7 +264,7 @@ function showTabContent(index) {
          tabLink.style.removeProperty('color');
          tabLink.style.removeProperty('background-color');
      }
- }		
+ }      
 }
 
 function showChecklist(ev) {
@@ -330,6 +330,7 @@ function makeLayoutPage(layout_number){
 var ele;
 
 function init() {
+    $('#checklist_view').hide();
     var visible = true;
   ele = $('.toolboxImage');
   $('.toolboxImage').draggable({
@@ -362,8 +363,11 @@ function init() {
   $('#checklistMenu').click(function(event){
 
     $('#checklistMenu').hide();
+    $('#edit_body').hide("slide", { direction: "left" }, 500);
+
+    $('#checklist_view').show("slide", { direction: "left" }, 200);
     $('#workspaceMenu').show();
-    if ( visible ) {
+/*    if ( visible ) {
         $('#edit_body').slideUp('slow','swing', function(){
             $('#edit_body').addClass('hide')
             .slideDown(0);
@@ -381,16 +385,21 @@ function init() {
             $('#checklist_view').addClass('hide')
             .slideDown(0);
         });
-    }
+    }*/
     visible = ! visible;
   });
 
   $('#workspaceMenu').click(function(event){
 
     $('#workspaceMenu').hide();
+    $('#checklist_view').hide("slide", { direction: "left" }, 200);
     $('#checklistMenu').show();
+    $('#edit_body').show("slide", { direction: "left" }, 500);
     
-    if ( visible ) {
+    
+
+    
+/*    if ( visible ) {
         $('#edit_body').slideUp('slow', 'swing', function(){
             $('#edit_body').addClass('hide')
             .slideDown(0);
@@ -408,7 +417,7 @@ function init() {
             $('#checklist_view').addClass('hide')
             .slideDown(0);
         });
-    }
+    }*/
     visible = ! visible;
   });
 
