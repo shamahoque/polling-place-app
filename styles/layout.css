@@ -1,4 +1,9 @@
-
+/*
+ * Polling Place Application
+ * Copyright (c) 2013 Shama Hoque, Linda Avendano, Dan Gillette, Ted Selker
+ * Licensed under Open Software License v. 3.0 (OSL-3.0)
+ * Date: Wed, Dec 4 2013 
+ */
 
 body{
 	margin:0;
@@ -8,22 +13,6 @@ body{
 	color:#FFFFFF;
 	background-color:#666666;
 }
-
-img{border:0; padding:0; margin:0;}
-.justify{text-align:justify;}
-.bold{font-weight:bold;}
-.center{text-align:center;}
-.right{text-align:right;}
-.nostart {list-style-type:none; margin:0; padding:0;}
-.clear{clear:both;}
-br.clear{clear:both; margin-top:-15px;}
-a{outline:none; text-decoration:none;}
-
-.fl_left{float:left;}
-.fl_right{float:right;}
-
-.imgl{float:left; margin:0 8px 8px 0; border:1px solid #000000; padding:5px; color:#FFFFFF; background-color:#999999; clear:left;}
-.imgr{float:right; margin:0 0 8px 8px; border:1px solid #000000; padding:5px; color:#FFFFFF; background-color:#999999; clear:right;}
 
 .mainTitle{
 	color:#F5F5EB;
@@ -40,8 +29,6 @@ a{outline:none; text-decoration:none;}
 	float: left;
 }
 
-/* ----------------------------------------------Wrapper-------------------------------------*/
-
 div.wrapper{
 	display:block;
 	width:100%;
@@ -55,16 +42,14 @@ div.wrapper{
 .col4{color:#666666; background-color:#F5F5EB;}
 .col5{color:#FFFFFF; background-color:#666666;}
 
-/* ----------------------------------------------Generalise-------------------------------------*/
 
-#topbar, #head, #projects, #breadcrumb, #container, #copyright, #gallery{
+#topbar, #head, #copyright{
 	position:relative;
 	margin:0 auto 0;
 	display:block;
 	width:960px;
 }
 
-/* ----------------------------------------------TopBar-------------------------------------*/
 
 #topbar{
 	height:60px;
@@ -72,9 +57,6 @@ div.wrapper{
 }
 
 
-
-
-/* ----------------------------------------------Head-------------------------------------*/
 .col3 button{
 
 	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
@@ -157,35 +139,8 @@ div.wrapper{
 	cursor: pointer;
 	padding: 2px;
 }
-#menu {
-	
-}
 
-#menu ul{
-	width: 170px;
-	display: none;
-	z-index: 999;
-	position: absolute;
-	list-style: none;
-	-webkit-padding-start: 0px;
-	-moz-padding-start: 0px;
 
-}
-
-#menu ul li{
-	background-color:#669999;
-	
-	padding: 10px;
-	border-bottom:1px solid white;
-}
-#menu ul li a{
-	color:white;
-}
-
-#menu ul li:hover a{
-	background-color: white; 
-	color:#7BAB96;
-}
 #checklistMenu:hover ul{
 	display: block;
 
@@ -202,109 +157,12 @@ div.wrapper{
 	font-family:Georgia, "Times New Roman", Times, serif;
 }
 
-#head h1, #head p, #head a{
-	margin:0;
-	padding:0;
-	list-style:none;
-	line-height:normal;
-}
-
-#head a{
-	color:#7BAB96;
-	background-color:#F5F5EB;
-}
-
-#head a:hover{
-	color:#FFFFFF;
-	background-color:#F5F5EB;
-}
-
-#head h1 a{
-	position:absolute;
-	top:15px;
-	left:0;
-	font-size:120px;
-}
-
-#head p{
-	display:block;
-	/*width:500px;*/
-	position:absolute;
-	/*top:170px;*/
-	left:0;
-	text-align:right;
-}
-
-
-
-#container{
-	padding:15px 0;
-}
-
-#container h1, #container h2, #container h3, #container h4, #container h5, #container h6{
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-weight:normal;
-	font-size:18px;
-	margin:0 0 10px 0;
-	padding:0;
-}
-
-#container a{
-	color: rgba(255, 140, 2, 0.25);
-	background-color:#F5F5EB;
-}
-
-#column p, #column ul, #column h1, #column h2, #column h3, #column h4, #column h5, #column h6{
-	margin:0;
-	padding:0;
-	list-style:none;
-	line-height:normal;
-	font-weight:normal;
-}
-
-#column .holder{
-	margin-bottom:15px;
-}
-
-#column .holder .title{
-	font-size:14px;
-	font-weight:bold;
-	margin-bottom:8px;
-	padding-bottom:5px;
-	border-bottom:1px dotted #666666;
-}
-
-#column .holder li{
-	margin-bottom:5px;
-}
-
-#column ul#banner125 li{
-	display:inline; /* Gets Rid of IE6 double margin bug */
-	float:left;
-	width:125px;
-	height:125px;
-	margin:0 0 10px 10px;
-}
-
-#column .text{font-size:12px;}
-
-#column .holder p.readmore{
-	text-align:right;
-	margin:5px 0 8px 0;
-}
-
-
-/* ----------------------------------------------Footer-------------------------------------*/
 
 #copyright{
 	padding:20px 0;
 	font-size:11px;
 }
 
-#copyright a{
-	color:#FFFFFF;
-	background-color:#666666;
-}
 
 #copyright p{
 	margin:0;

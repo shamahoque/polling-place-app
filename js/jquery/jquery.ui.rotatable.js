@@ -1,3 +1,6 @@
+//@source https://github.com/godswearhats/jquery-ui-rotatable
+//Licensed under MIT
+
 (function( $, undefined ) {
 		
 $.widget("ui.rotatable", $.ui.mouse, {

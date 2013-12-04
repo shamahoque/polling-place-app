@@ -1,3 +1,10 @@
+/*
+ * Polling Place Application
+ * Copyright (c) 2013 Shama Hoque, Linda Avendano, Dan Gillette, Ted Selker
+ * Licensed under Open Software License v. 3.0 (OSL-3.0)
+ * Date: Wed, Dec 4 2013 
+ */
+
 var imgNumber = 0;
 var layoutNumber;
 var imagesArray = new Array("entrance.jpg",
