@@ -31,7 +31,7 @@ body {
 
 .toolboxImage {
     width: 63px;
-    height: 43px;
+    /*height: 43px;*/
     cursor: pointer;
 
 
@@ -48,22 +48,25 @@ body {
 .toolboxImage:hover .delete{
     background-image: url(../images/x.png);
     background-size: 100%;
-    -webkit-transition-delay:0.7s;     
-    -moz-transition-delay:0.7s; 
-    -ms-transition-delay:0.7s;     
-    -o-transition-delay:0.7s;     
-    transition-delay:0.7s;
+    height: 20px;
+    -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
+
 
 } 
 
 .toolboxImage:hover .clone{
     background-image: url(../images/clone.png);
     background-size: 100%;
-    -webkit-transition-delay:0.7s;     
-    -moz-transition-delay:0.7s; 
-    -ms-transition-delay:0.7s;     
-    -o-transition-delay:0.7s;     
-    transition-delay:0.7s;
+    height: 15px;
+    -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
     
 }
 
@@ -81,11 +84,11 @@ body {
   .toolboxImage:hover img{
     width: 90px;
     height: 60px;
-    -webkit-transition-delay:0.7s;     
-    -moz-transition-delay:0.7s; 
-    -ms-transition-delay:0.7s;     
-    -o-transition-delay:0.7s;     
-    transition-delay:0.7s;
+    -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
   }
   
   .outline_options img {
@@ -104,22 +107,25 @@ body {
   padding-top: 8px;
   padding-left: 10px;
   height: 624px;
+  width: 1240px;
 }
 
 .clone {
     position: absolute;
-    bottom: -65%;
+    bottom: 8%;
     right: -25px;
-    height: 15px;
+    height: 0px;
     width: 40px;
+    -webkit-transition:0s height;
 }
 
 .delete{
     position: absolute;
-    bottom: 75%;
+    top: -15%;
     right: -25px;
-    height: 20px;
+    height: 0px;
     width: 20px;
+    -webkit-transition:0s height;
 }
 .drop img {
     width: 63px;

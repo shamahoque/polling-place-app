@@ -354,7 +354,7 @@ function init() {
       $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
       // Create handle dynamically
-      $('<div class="delete"></div>').appendTo($('.drop'));
+      $('<div class="delete"></div>').prependTo($('.drop'));
       $('<div class="clone"></div>').appendTo($('.drop'));
       clickDelete();
       clickClone();

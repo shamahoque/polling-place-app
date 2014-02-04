@@ -22,4 +22,6 @@
     transition-delay:0.5s;
 }
 .ui-rotatable-handle {
+	height: 0px;
+	-webkit-transition:0s height;
 }
