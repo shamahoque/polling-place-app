@@ -10,9 +10,10 @@
 #diagram {background-repeat:no-repeat; width: 880px; height: 614px;}
 #edit {
     width: 880px;
-    height: 523px;
+    height: 615px;
     float:left;
     padding:0px 10px 0px 20px;
+    text-align: center;
 }
 
 body {
@@ -59,9 +60,21 @@ body {
 } 
 
 .toolboxImage:hover .clone{
-    background-image: url(../images/clone.png);
+    background-image: url(../images/cloneicon.png);
     background-size: 100%;
-    height: 15px;
+    height: 20px;
+    -webkit-transition-delay:0.5s;     
+    -moz-transition-delay:0.5s; 
+    -ms-transition-delay:0.5s;     
+    -o-transition-delay:0.5s;     
+    transition-delay:0.5s;
+    
+}
+
+.toolboxImage:hover .tag{
+    background-image: url(../images/tag.png);
+    background-size: 100%;
+    height: 23px;
     -webkit-transition-delay:0.5s;     
     -moz-transition-delay:0.5s; 
     -ms-transition-delay:0.5s;     
@@ -106,16 +119,16 @@ body {
 #edit_body{
   padding-top: 8px;
   padding-left: 10px;
-  height: 624px;
+  height: 664px;
   width: 1240px;
 }
 
 .clone {
     position: absolute;
-    bottom: 8%;
-    right: -25px;
+    top: -20%;
+    right: -5px;
     height: 0px;
-    width: 40px;
+    width: 23px;
     -webkit-transition:0s height;
 }
 
@@ -125,6 +138,15 @@ body {
     right: -25px;
     height: 0px;
     width: 20px;
+    -webkit-transition:0s height;
+}
+
+.tag {
+    position: absolute;
+    bottom: 5%;
+    right: -25px;
+    height: 0px;
+    width: 39px;
     -webkit-transition:0s height;
 }
 .drop img {
@@ -205,6 +227,29 @@ body {
    position: absolute !important;
    top: -9999px !important;
    left: -9999px !important;
+}
+
+/*tag window css*/
+.snapshot{
+    float: left;
+}
+
+.notes{
+    float: right;
+    height: 310px;
+    width: 250px;
+}
+
+.videostream, #screenshot {
+  width: 307px;
+  height: 240px;
+}
+.videostream{
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #ccc;
+}
+#screenshot {
+  vertical-align: top;
 }
 
 /*pop up css*/

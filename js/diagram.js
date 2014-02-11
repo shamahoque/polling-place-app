@@ -350,15 +350,25 @@ function init() {
       if ($(ui.helper).hasClass('drop')){
         clickDroppedItem();
         return true;
-      }
-      $(this).after($(ui.helper).clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
+      }else{
+        $newItem = $(ui.helper).clone();
+      $(this).after($newItem.draggable({containment: '#zoom-parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
+        console.log(ui.helper);
       // Create handle dynamically
-      $('<div class="delete"></div>').prependTo($('.drop'));
-      $('<div class="clone"></div>').appendTo($('.drop'));
+      $newItem.append($('<div class="delete"></div>'));
+      $newItem.append($('<div class="clone"></div>'));
+      $newItem.append($('<div class="tag"></div>'));
+
+      $('.drop').on('mousedown touchstart click', function( e ) {
+            console.log(e);
+            e.stopImmediatePropagation();
+      });
+      
       clickDelete();
       clickClone();
-
+      clickTag();
+  }
 
     }
   });
@@ -425,9 +435,11 @@ function init() {
 
 function clickClone(){
   $('.clone').click(function(event){
+    
     console.log(event.target.className);
     if (event.target.className == "clone"){
-      var clonedElement = $(event.target).parent().clone().draggable({containment: 'parent', drag: removeStyle, stop: addStyle});
+        event.stopImmediatePropagation();
+      var clonedElement = $(event.target).parent().clone().draggable({containment: '#zoom-parent', drag: removeStyle, stop: addStyle});
       clonedElement.children('.ui-rotatable-handle').remove();
       clonedElement.rotatable();
       console.log(event.clientX);
@@ -435,10 +447,11 @@ function clickClone(){
         'left': event.clientX + 30,
         'top': event.clientY
       });
-      clonedElement.appendTo($('#edit'));
+      clonedElement.appendTo($('#zoom'));
       clickDroppedItem();
       clickDelete();
       clickClone();
+      clickTag();
     }
 
   });
@@ -446,14 +459,35 @@ function clickClone(){
 function clickDelete(){
   $('.delete').click(function(event){
     console.log(event.target.className);
-    if (event.target.className == "delete")
+    
+    if (event.target.className == "delete"){
+        event.stopImmediatePropagation();
       $(event.target).parent().remove();
+    }
+
+  });
+}
+
+function clickTag(){
+  $('.tag').click(function(event){
+    console.log(event.target.className);
+    
+    if (event.target.className == "tag"){
+        event.stopImmediatePropagation();
+      //tag code
+      $("#default-tag-inputbox").modal({
+        containerCss: {
+            width: 650,
+            height: 400
+        }});
+    }
+
   });
 }
 function clickDroppedItem (){
   $('.drop').click(function(event){
-    console.log(event.target);
-    if (event.target.className != "delete" && event.target.className != "clone"){
+    
+    if (event.target.className != "delete" && event.target.className != "clone" && event.target.className != "tag"){
       showChecklist(event);
       event.preventDefault();
     $("#clon_div_"+event.target.id).modal();
@@ -464,10 +498,13 @@ function clickDroppedItem (){
 
 function removeStyle(event, ui){
   $(event.target).removeClass("toolboxImage");
+  //event.stopImmediatePropagation();
+  ($('#zoom')).panzoom("option", "disablePan", true);
 }
 
 function addStyle(event, ui){
   $(event.target).addClass("toolboxImage");
+  ($('#zoom')).panzoom("option", "disablePan", false);
 }
 
 function applyRotation() {
