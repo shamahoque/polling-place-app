@@ -354,14 +354,13 @@ function init() {
         $newItem = $(ui.helper).clone();
       $(this).after($newItem.draggable({containment: '#zoom-parent', drag: removeStyle, stop: addStyle}).rotatable().addClass('drop'));
       clickDroppedItem();
-        console.log(ui.helper);
+        
       // Create handle dynamically
       $newItem.append($('<div class="delete"></div>'));
       $newItem.append($('<div class="clone"></div>'));
       $newItem.append($('<div class="tag"></div>'));
 
       $('.drop').on('mousedown touchstart click', function( e ) {
-            console.log(e);
             e.stopImmediatePropagation();
       });
       
@@ -436,7 +435,7 @@ function init() {
 function clickClone(){
   $('.clone').click(function(event){
     
-    console.log(event.target.className);
+    
     if (event.target.className == "clone"){
         event.stopImmediatePropagation();
       var clonedElement = $(event.target).parent().clone().draggable({containment: '#zoom-parent', drag: removeStyle, stop: addStyle});
@@ -458,7 +457,7 @@ function clickClone(){
 }
 function clickDelete(){
   $('.delete').click(function(event){
-    console.log(event.target.className);
+    
     
     if (event.target.className == "delete"){
         event.stopImmediatePropagation();
@@ -470,16 +469,29 @@ function clickDelete(){
 
 function clickTag(){
   $('.tag').click(function(event){
-    console.log(event.target.className);
+   
     
     if (event.target.className == "tag"){
         event.stopImmediatePropagation();
+        $('#screenshot')[0].src = "";
+        var $taggedItem = $(event.target).parent();
+        if($taggedItem.attr('id')){
+            $('#screenshot')[0].src = tagData[$taggedItem.attr('id')].img;
+            $('#note').val(tagData[$taggedItem.attr('id')].notes);
+            $('#screenshot-stream').css("display", "none");
+            $('#screenshot').css("display", "block");
+        }
       //tag code
       $("#default-tag-inputbox").modal({
         containerCss: {
             width: 650,
             height: 400
-        }});
+        },
+        onClose: function() {
+           saveTags($taggedItem);
+           $.modal.close(); 
+        }
+      });
     }
 
   });
@@ -490,7 +502,8 @@ function clickDroppedItem (){
     if (event.target.className != "delete" && event.target.className != "clone" && event.target.className != "tag"){
       showChecklist(event);
       event.preventDefault();
-    $("#clon_div_"+event.target.id).modal();
+
+    $("#clon_div_"+event.target.id.match(/img_\d+/)[0]).modal();
   }
   });
 

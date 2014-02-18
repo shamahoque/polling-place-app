@@ -9,7 +9,7 @@
 /*TO-DO: Refactor*/
 #diagram {background-repeat:no-repeat; width: 880px; height: 614px;}
 #edit {
-    width: 880px;
+    width: 915px;
     height: 615px;
     float:left;
     padding:0px 10px 0px 20px;
@@ -228,6 +228,22 @@ body {
    top: -9999px !important;
    left: -9999px !important;
 }
+/*zoom*/
+.buttons {
+    float:right;
+    display: inline-block;
+    padding-top: 25px; 
+}
+
+.zoom-range{
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 150px;
+}
+
+#zoom-parent {
+    float: left;
+}
 
 /*tag window css*/
 .snapshot{
@@ -239,7 +255,26 @@ body {
     height: 310px;
     width: 250px;
 }
-
+.camera-button{
+    background-image: url(../images/camera.png);
+    background-size: 100%;
+    bottom:34%;
+    left:40%;
+    position:absolute;
+    cursor: pointer;
+    height: 47px;
+    width: 54px;
+}
+.shot-button{
+    background-image: url(../images/camera0.png);
+    background-size: 100%;
+    bottom:34%;
+    left:23%;
+    position:absolute;
+    cursor: pointer;
+    height: 50px;
+    width: 58px;
+}
 .videostream, #screenshot {
   width: 307px;
   height: 240px;

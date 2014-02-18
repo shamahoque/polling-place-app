@@ -83,10 +83,10 @@
           </div>
         </div>
           <div class="buttons">
-            <button class="zoom-in">Zoom In</button>
-            <button class="zoom-out">Zoom Out</button>
-            <input type="range" class="zoom-range">
-            <button class="reset">Reset</button>
+            <button class="zoom-in">+</button><br/>
+            <input type="range" class="zoom-range"><br/>
+            <button class="zoom-out">-</button><br/>
+            <!-- <button class="reset">Reset</button> -->
           </div>
         </div>
 
@@ -107,12 +107,12 @@
       <div id="checkboxToDoList"></div>
       <div id="tabsToDoList"></div>
 
-      <div id="default-tag-inputbox">
+      <div id="default-tag-inputbox" style="display:none;">
         <div style="overflow:auto;">
             <div class="snapshot">
               
-                <div style="text-align:center;">
-                  <button id="screenshot-button">Camera</button> <button id="screenshot-stop-button" style="display:none;">Stop</button><br/>
+                <div style="text-align:center;">Photo Tag
+                  <div id="screenshot-button" class="camera-button"></div> <button id="screenshot-stop-button" style="display:none;">Stop</button><br/>
                   <video id="screenshot-stream" class="videostream" autoplay></video>
                   <img id="screenshot" src="" style="display:none;">
                   <canvas id="screenshot-canvas" style="display:none;"></canvas>
@@ -120,8 +120,7 @@
                 </div>
             </div>
             <div class="notes">Notes:<br/>
-                <textarea rows="18" cols="32">
-                  
+                <textarea rows="18" cols="32" id="note">   
                 </textarea>
             </div>
          </div> 
@@ -141,15 +140,23 @@
   </div>
 </div>
 
-<script type="text/javascript" src="js/FileSaver.min.js"></script>
-<script type="text/javascript" src="js/diagram.js"></script>
+
 <script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+<script src="js/jquery/jquery.ui.touch-punch.min.js"></script>
 <script src="js/jquery/jquery.ui.rotatable.js"></script>
 <script src='js/jquery/jquery.simplemodal.1.4.4.min.js' type='text/javascript'></script>
 <script src="js/jquery/jquery.panzoom.min.js"></script>
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
+<script type="text/javascript" src="js/diagram.js"></script>
 
   <script>
+    var tagData={};
+    var snapped = false;
+    var img = document.querySelector('#screenshot');
+    var capturedImg = $('#screenshot')[0].src;
+    tagData["total"] = 0;
+    document.addEventListener("touchstart", function(){}, true);
         (function() {
 
           var $p = $('#zoom').panzoom({
@@ -183,77 +190,116 @@
 
 
 
-        (function() {
+        
         var video = document.querySelector('#screenshot-stream');
         var button = document.querySelector('#screenshot-button');
         var stopButton = document.querySelector('#screenshot-stop-button');
         var canvas = document.querySelector('#screenshot-canvas');
-        var img = document.querySelector('#screenshot');
-        var ctx = canvas.getContext('2d');
+        
+        var ctx = $('#screenshot-canvas')[0].getContext('2d');
         var localMediaStream = null;
 
         function sizeCanvas() {
           // video.onloadedmetadata not firing in Chrome so we have to hack.
           // See crbug.com/110938.
           setTimeout(function() {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            img.height = video.videoHeight;
-            img.width = video.videoWidth;
+            $('#screenshot-canvas')[0].width = $('#screenshot-stream')[0].videoWidth;
+            $('#screenshot-canvas')[0].height = $('#screenshot-stream')[0].videoHeight;
+            $('#screenshot')[0].height = $('#screenshot-stream')[0].videoHeight;
+            $('#screenshot')[0].width = $('#screenshot-stream')[0].videoWidth;
           }, 100);
         }
 
         function snapshot() {
-          ctx.drawImage(video, 0, 0);
-          img.src = canvas.toDataURL('image/webp');
-          video.style.display = "none";
-          img.style.display = "block";
-          video.pause();
+          $('#screenshot-canvas')[0].getContext('2d').drawImage( $('#screenshot-stream')[0], 0, 0);
+          capturedImg = $('#screenshot-canvas')[0].toDataURL('image/webp');
+          $('#screenshot')[0].src = capturedImg;
+          console.log("Snap: " + capturedImg);
+          $('#screenshot-stream').css('display', "none");
+          $('#screenshot').css('display', "block");
+          $('#screenshot-stream')[0].pause();
           localMediaStream.stop();
           localMediaStream = null;
-          stopButton.style.display= "none";
-          button.textContent = 'Camera';
+          $('#screenshot-stop-button').css('display', "none");
+          $('#screenshot-button').toggleClass("camera-button shot-button");
+          snapped = true;
 
         }
 
-        button.addEventListener('click', function(e) {
-          if (localMediaStream) {
+        $('#screenshot-button').click(function(e){
+          //$('#screenshot-button').toggleClass("camera-button shot-button");
+          $('#screenshot')[0].src="";
+          if(localMediaStream && localMediaStream != null) {
+            
             snapshot();
             return;
           }
+            
 
-            img.style.display = "none";
-            video.style.display = "block";
+            $('#screenshot').css('display', "none");
+            $('#screenshot-stream').css('display', "block");
 
           if (navigator.getUserMedia) {
             navigator.getUserMedia('video', function(stream) {
-              video.src = stream;
+              $('#screenshot-stream')[0].src = stream;
               localMediaStream = stream;
               sizeCanvas();
-              button.textContent = 'Take Shot';
-              stopButton.style.display= "inline-block";
+              $('#screenshot-button').toggleClass("camera-button shot-button");
+              $('#screenshot-stop-button').css('display', "inline-block");
             }, errorCallback);
           } else if (navigator.webkitGetUserMedia) {
             navigator.webkitGetUserMedia({video: true}, function(stream) {
-              video.src = window.URL.createObjectURL(stream);
+              $('#screenshot-stream')[0].src = window.URL.createObjectURL(stream);
               localMediaStream = stream;
               sizeCanvas();
-              button.textContent = 'Take Shot';
-              stopButton.style.display= "inline-block";
+              $('#screenshot-button').toggleClass("camera-button shot-button");
+              $('#screenshot-stop-button').css('display', "inline-block");
             }, errorCallback);
           } else {
             errorCallback({target: video});
           }
-        }, false);
+        });
 
-        video.addEventListener('click', snapshot, false);
+        // $('#screenshot-stream')[0].addEventListener('click', snapshot, false);
 
-        document.querySelector('#screenshot-stop-button').addEventListener('click', function(e) {
-          video.pause();
+        $('#screenshot-stop-button').click(function(e) {
+          $('#screenshot-stream')[0].pause();
+          if(localMediaStream!= null){
           localMediaStream.stop(); // Doesn't do anything in Chrome.
-        }, false);
-        })();
+          localMediaStream = null;
+        }
+        });
+        
+        function saveTags($taggedItem){
 
+           $('#screenshot-stream')[0].pause();
+          if(localMediaStream!= null){
+          localMediaStream.stop(); // Doesn't do anything in Chrome.
+          localMediaStream = null;
+        }
+          var tagID = $taggedItem.attr('id');
+          if(tagID){
+            
+          }else{
+            tagData["total"]++;
+            $taggedItem.attr('id', "taggedItem"+tagData["total"]);
+            
+          }
+          console.log(tagData[$taggedItem.attr('id')]);
+          if(!snapped){
+            capturedImg = "";
+            if(tagData[$taggedItem.attr('id')]){}
+            else
+            tagData[$taggedItem.attr('id')] = { "img":"", "notes":""};
+          }
+
+          tagData[$taggedItem.attr('id')]={"img":snapped ? capturedImg : tagData[$taggedItem.attr('id')].img, "notes":$("#note").val()};
+          console.log("saved: " + capturedImg);
+          $('#screenshot')[0].src="";
+          $("#note").val("");
+          console.log(tagData);
+          snapped = false;
+        }
       </script>
 </body>
 </html>
