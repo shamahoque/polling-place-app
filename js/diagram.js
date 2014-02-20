@@ -478,8 +478,13 @@ function clickTag(){
         if($taggedItem.attr('id')){
             $('#screenshot')[0].src = tagData[$taggedItem.attr('id')].img;
             $('#note').val(tagData[$taggedItem.attr('id')].notes);
+            rating = tagData[$taggedItem.attr('id')].rating;
+            setRatingStars(rating);
             $('#screenshot-stream').css("display", "none");
             $('#screenshot').css("display", "block");
+        }else{
+            rating=1;
+            setRatingStars(rating);
         }
       //tag code
       $("#default-tag-inputbox").modal({
