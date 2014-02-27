@@ -165,16 +165,7 @@ body {
 }
 
 
-#blanket {
-    background-color:#111;
-    opacity: 0.65;
-    background:none;
-    position:absolute;
-    z-index: 9001;
-    top:0px;
-    left:0px;
-    width:100%;
-}
+
 
 #popUpDiv {
     position:absolute;
@@ -308,9 +299,36 @@ body {
 #screenshot {
   vertical-align: top;
 }
+.saved_status{
+    background-color: #FF9C00;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    width: 45%;
+    margin: 7px auto;
+    display: none;
+}
+.tagButton{
+    background-color: white;
+    border: 1px solid #444;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    text-align: center;
+    cursor: pointer;
+    font-size:15px;
+    color: #444;
+    padding: 2px 20px 2px 20px;
+}
+.tagButton:hover {
+    background-color: lightgray;
+}
 
 /*pop up css*/
-
+.none{
+   background:none; 
+}
 /* Overlay */
 .simplemodal-overlay {background-color:#000; cursor:wait;}
 

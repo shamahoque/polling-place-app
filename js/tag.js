@@ -23,9 +23,7 @@
           //e.target.src = 'http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv';
         }
 
-        $('#saveTag').click(function(e){
-        	
-        });
+ 
 
         
         var video = document.querySelector('#screenshot-stream');
@@ -132,8 +130,7 @@
 
           tagData[$taggedItem.attr('id')]={"img":snapped ? capturedImg : tagData[$taggedItem.attr('id')].img, "notes":$("#note").val(), "rating":rating};
           console.log("saved: " + capturedImg);
-          $('#screenshot')[0].src="";
-          $("#note").val("");
+          
           
           console.log(tagData);
           snapped = false;
@@ -156,3 +153,18 @@
 		    }
 
          }
+
+         $('#saveTag').click(function(e){
+         	saveTags($taggedItem);
+         	$('.saved_status').show();
+         	setTimeout(function(){$('.saved_status').hide();},2000);
+         });
+
+         $('#cancelTag').click(function(e){
+         	$('#screenshot-stream')[0].pause();
+          if(localMediaStream!= null){
+	          localMediaStream.stop(); // Doesn't do anything in Chrome.
+	          localMediaStream = null;
+          }
+         	$.modal.close();
+         });
