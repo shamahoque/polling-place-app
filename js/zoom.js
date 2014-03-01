@@ -18,11 +18,12 @@
             contain: 'invert'
           });
 
-          $('#zoom-parent').on('click', function(e){
-            e.preventDefault();
-            $p.panzoom('zoom', {
-              focal: e
-            });
-          });
+         //On click in work area, zoom in at that point
+          // $('#zoom-parent').on('click', function(e){
+          //   e.preventDefault();
+          //   $p.panzoom('zoom', {
+          //     focal: e
+          //   });
+          // });
 
         })();

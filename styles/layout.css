@@ -2,16 +2,16 @@
  * Polling Place Application
  * Copyright (c) 2013 Shama Hoque, Linda Avendano, Dan Gillette, Ted Selker
  * Licensed under Open Software License v. 3.0 (OSL-3.0)
- * Date: Wed, Dec 4 2013 
+ * Date: Wed, Dec 4 2013
  */
 
 body{
-	margin:0;
-	padding:0;
 	font-size:13px;
 	font-family:verdana, Arial, Helvetica, sans-serif;
 	color:#FFFFFF;
 	background-color:#666666;
+  width: 1240px;
+  margin: auto;
 }
 
 .mainTitle{
@@ -31,14 +31,14 @@ body{
 
 div.wrapper{
 	display:block;
-	width:100%;
+	width:1240px;
 	margin:0;
 	text-align:left;
 }
 
 .col1{color:#FFFFFF; background-color:#A7A697;}
 .col2{color:#666666; background-color:#F5F5EB;}
-.col3{color:#7BAB96; background-color:#EEEEDD; padding: 10px; font-size: 14px; width: 1240px;}
+.col3{color:#7BAB96; background-color:#EEEEDD; padding: 10px; font-size: 14px;}
 .col4{color:#666666; background-color:#F5F5EB;}
 .col5{color:#FFFFFF; background-color:#666666;}
 
@@ -101,10 +101,10 @@ div.wrapper{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	margin-right: 20px; 
+	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
-	
+
 }
 
 .checklistButton{
@@ -122,10 +122,10 @@ div.wrapper{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	margin-right: 20px; 
+	margin-right: 20px;
 	text-align: center;
 	cursor: pointer;
-	
+
 }
 
 .workspaceButton{
@@ -135,7 +135,7 @@ div.wrapper{
 #checklist {
 	list-style: none;
 	width:120px;
-	margin: 0px 15px; 
+	margin: 0px 15px;
 	-webkit-padding-start: 5px;
 	cursor: pointer;
 	padding: 2px;

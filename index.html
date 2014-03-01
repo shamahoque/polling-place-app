@@ -2,7 +2,7 @@
  * Polling Place Application
  * Copyright (c) 2013 Shama Hoque, Linda Avendano, Dan Gillette, Ted Selker
  * Licensed under Open Software License v. 3.0 (OSL-3.0)
- * Date: Wed, Dec 4 2013 
+ * Date: Wed, Dec 4 2013
 -->
 
 
@@ -13,6 +13,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="styles/diagram_layout.css" type="text/css">
+  <link rel="stylesheet" href="styles/trail_maker.css" type="text/css" />
   <link rel="stylesheet" href="styles/jquery.ui.rotatable.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
@@ -66,7 +67,7 @@
         <button onclick="location.reload();">Choose a different outline</button>
         <button onclick="saveCopy();">Save</button>
         <button onclick="reset();">Reset</button>
-        
+
         <div id="checklistMenu">
           <span class='checklistButton'>Checklists</span>
       </div>
@@ -76,8 +77,10 @@
       </div>
       <div id="edit_body">
         <div id="edit">
+
           <div id="zoom-parent">
           <div id="zoom">
+          <canvas id="trail_canvas"></canvas>
           <div id="diagram">
           </div>
           </div>
@@ -85,7 +88,9 @@
           <div class="buttons">
             <button class="zoom-in">+</button><br/>
             <input type="range" class="zoom-range"><br/>
-            <button class="zoom-out">-</button><br/>
+            <button class="zoom-out">-</button><br/><br/>
+            <button id="trail1">Trail1</button><br/>
+            <button id="trail2">Trail2</button>
             <!-- <button class="reset">Reset</button> -->
           </div>
         </div>
@@ -99,10 +104,10 @@
 
 
       </div>
-      
+
         <div id="allToDos"></div>
-    </div> 
-      
+    </div>
+
 
       <div id="checkboxToDoList"></div>
       <div id="tabsToDoList"></div>
@@ -110,13 +115,13 @@
       <div id="default-tag-inputbox" style="display:none;">
         <div style="overflow:auto;">
             <div class="snapshot">
-              
+
                 <div style="text-align:center;">Photo Tag
                   <div id="screenshot-button" class="camera-button"></div> <button id="screenshot-stop-button" style="display:none;">Stop</button><br/>
                   <video id="screenshot-stream" class="videostream" autoplay></video>
                   <img id="screenshot" src="" style="display:none;">
                   <canvas id="screenshot-canvas" style="display:none;"></canvas>
-                  
+
                 </div>
                 <div class="rating">
                   Rating:<br/>
@@ -128,20 +133,20 @@
                 </div>
             </div>
             <div class="notes">Notes:<br/>
-                <textarea rows="22" cols="33" id="note">   
+                <textarea rows="22" cols="33" id="note">
                 </textarea>
                 <div style="text-align: center; margin-top:9px">
                 <button id="saveTag" class="tagButton">Save</button>
                 <button id="cancelTag" class="tagButton">Cancel</button>
                 </div>
-            </div> 
-          
+            </div>
+
       </div>
       <div class="saved_status">
         Saved
       </div>
     </div>
-    
+
 
 
   </div>
@@ -166,13 +171,14 @@
 <script type="text/javascript" src="js/zoom.js"></script>
 <script type="text/javascript" src="js/checklist.js"></script>
 <script type="text/javascript" src="js/toolbox.js"></script>
+<script type="text/javascript" src="js/trail_maker.js"></script>
 
 
   <script>
-    
+
     document.addEventListener("touchstart", function(){}, true);
 
-        
+
       </script>
 </body>
 </html>
